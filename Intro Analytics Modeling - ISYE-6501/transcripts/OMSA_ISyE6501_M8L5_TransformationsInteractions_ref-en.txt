@@ -1,0 +1,57 @@
+>> In previous lessons,
+we've seen what regression looks like graphically
+and how to use the regression models solution,
+the regression coefficients to answer
+descriptive and predictive analytics questions.
+In this lesson, we'll see how to
+build more general regression models.
+First, let's look at the inputs.
+In the previous lessons,
+we saw a general formula for linear regression.
+Each attribute appears in this formula linearly,
+its value x_i is
+multiplied by regression coefficient a_i.
+That works great if the data looks linear like this.
+But what if the data looks
+more like the graph on the right?
+A linear approximation doesn't work well,
+but a nonlinear fit like
+this one is much closer to the data.
+So we could transform the data to make the fit linear.
+If the data looks like y equals x squared,
+then we can include a quadratic term in the regression.
+It basically creates a new column of data.
+We can use any other function of the attributes we
+want as well if it fits the data.
+We can also transform the response.
+For example, we could use
+the regression to estimate the log of
+the response or even
+transform both the attributes and the response.
+Box-Cox transformations are one type of
+transformations that most statistical software
+can automate for you.
+It also might be that
+the attributes interact in some way.
+For example, if we're trying to
+estimate a two-year-olds height at adulthood,
+the child's height might be
+related to the father's height,
+the mother's height, and
+to the product of the two heights.
+Perhaps if both parents are tall, for example,
+then the child is expected to
+be even taller than we might
+expect based on just the two parents individual heights.
+So we can add an interaction term to
+the regression equation to capture
+how the two attributes interact with each other,
+and just as before,
+the interaction term can be transformed.
+Once it's included as a new column of data,
+it can be treated just like any other attribute.
+Once we build a regression model with
+interaction terms and transformations included,
+we can use software to find the best fit coefficients,
+and you'll get a chance to do
+that in the upcoming homework assignment.

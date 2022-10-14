@@ -1,0 +1,158 @@
+>> In this lesson, we'll talk about many of
+the different types of data you
+might encounter in analytics.
+And just as importantly,
+we'll go through some of
+the terminology that analytics and
+data science professionals use
+for different types of data.
+So I apologize in
+advance if this lesson might be a little
+less interesting than some others where
+you learn a new analysis technique.
+But it's important to make sure
+that we're all on the same page in
+terms of vocabulary as we go further into this course.
+And it'll also be helpful for your career to help
+you communicate easily with other analytics people.
+So let's break out
+our analytics dictionary and get started.
+First, let's see the mental model of
+data that most people use when they talk about it.
+Usually, people in analytics
+talk about data as if it's in a table.
+In this table, every row is called a data point.
+It's a single observation of information.
+For example, if we're looking at past loan applicants
+to see which future applicants
+might be good credit risks,
+then each applicant would be a data point.
+Or if we're analyzing
+daily sales to predict what future sales will be,
+then each day would be a data point.
+Each column of the table is
+a piece of information about every data point.
+For example, in the credit risk table,
+one column of data might
+contain each applicant's credit score.
+Another column might contain
+each applicant's household income and a
+third might contain each applicant's zip code.
+In the sales prediction example,
+one column of data might
+contain the number of sales on that day,
+a second might contain the day of the week and a
+third might indicate whether
+or not the day was a holiday.
+We've already seen that every row is called a data point.
+For columns, there are lots of different names.
+They're often called attributes or
+features and depending on how the data is being used,
+they might also be called covariates or predictors.
+There's also a special type of column
+known as the response or outcome.
+You can think of this column as
+being the answer for each data point.
+For loan applicants, it's
+the observation of whether they
+repaid the full loan or not,
+or it could be the fraction of
+the loan they repaid from 0-100%.
+For sales, the response could be
+the number of sales recorded on each day.
+Now that we've laid out the mental model that
+most people use to refer to data,
+let's look at some different types of data.
+First, we'll see the difference
+between structured and unstructured data.
+Structured data is what
+most people envision when we think of data.
+There are some formal technical definitions
+of structured data but essentially,
+it's data that can be described and
+stored in a nice structured way, for example,
+a credit score, age,
+number of sales, etc,
+are all stored as numbers.
+A person's sex is often
+stored as a single letter M or F,
+either M for male or F for female.
+And hair color can be stored
+as a choice of just a few words.
+Black, brown, red,
+blonde, or in my case, grey.
+On the other hand, unstructured data
+isn't easily described and stored.
+The most common example of unstructured data is text.
+For example, I'm working with
+a police department trying to glean
+information and insight from the text
+of police officer's incident reports.
+Different officers might write
+their reports very differently and we
+have to parse through all the text to
+find valuable connections and trends.
+Within the category of structured data,
+there are some common types of data that
+we've all probably seen before.
+First, let's look at numbers.
+Most numeric data is quantitative.
+The numbers have a meaning.
+Age, number of sales, temperature,
+income, those are all examples of quantitative data.
+Higher values mean there's more of it
+and lower values mean there's less of it.
+But sometimes a number doesn't
+have any quantitative meaning.
+It just shows which category something is in.
+Zip codes, for example,
+don't imply anything more or less.
+When I move from zip code 07470 to zip code 02139,
+it didn't mean that anything decreased.
+And when I moved from 02139 to 30318,
+nothing increased,
+the numbers just denote different categories.
+This data is called categorical data.
+There's also a special case of
+categorical data called binary data.
+A binary attribute can take only two values.
+A person could be male or female,
+or either repaid the full loan
+or didn't repay the full loan.
+A day could be a holiday or not a holiday,
+a television could be on or off.
+As we'll see in a later lesson,
+binary data can sometimes be treated as quantitative,
+even though it's categorical.
+There's one last thing we should
+cover in our basic data dictionary.
+Sometimes data points are unrelated.
+Each loan applicant is a different person with
+no relationship to most other loan applicants.
+On the other hand, sometimes data is related in time.
+For example, let's go back to our daily sales data.
+Each data point refers to one day and we have
+an attribute that records
+each day's sales one after the other.
+If we put those data points in chronological order,
+then reading down the column of data shows the number of
+sales made day-by-day, one after another.
+That's called time series data.
+Time series data is often recorded
+at equal intervals, for example,
+a company sales each day,
+the price of a stock every two seconds,
+or the height of a child
+recorded each year on her birthday.
+But it's also possible to have
+time-series data that isn't recorded at equal intervals.
+That's a lot of definitions to pack into one lesson.
+The good news is, since we'll be using
+this terminology a lot as we go through the course,
+you'll have plenty of
+opportunity to get comfortable with it.
+But I don't expect that
+you'll remember it all right away,
+so we've posted a document
+that has all of these definitions
+and others for easy access anytime you need it. Enjoy.

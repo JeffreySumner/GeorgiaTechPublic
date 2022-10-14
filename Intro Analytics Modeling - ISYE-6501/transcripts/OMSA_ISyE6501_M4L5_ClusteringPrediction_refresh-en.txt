@@ -1,0 +1,45 @@
+>> In previous lessons we talked about clustering,
+splitting a set of data points into
+groups based on their similarity and
+closeness to each other and
+we saw a machine learning algorithm,
+the k-means heuristic for finding good clusterings.
+In this lesson we'll see how to use
+k-means clustering in a predictive way.
+Let's take a look at a clustering solution.
+Here's a set of data points divided into five clusters.
+The triangles are the cluster centers.
+Now suppose we have a new data point.
+Which cluster should we predict the point would be in?
+If the new point is inside a cluster like this one,
+the answer is easy.
+But if the new point isn't inside
+a cluster we can just choose whichever cluster center is
+closest and that's as reasonable a choice
+as any for predicting which cluster the new point is in.
+We can also answer another type of question.
+What range of possible data points
+would we assign to each cluster?
+Each cluster could possibly include
+all the data points that are closer to its center than
+to any of the other centers and we can color
+code the whole space to
+show what those regions look like.
+Here, the red area shows everywhere that's
+closer to the red cluster center
+than to any of the others.
+It turns out by the way that
+this picture has been around for a long time.
+It's often called a Voronoi diagram
+after a mathematician who
+lived more than a 100 years ago.
+But a diagram like it was used
+more than 150 years ago to try to analyze the source
+of a cholera outbreak in
+London and Rene Descartes and a mathematician who
+lived back in the early and mid 1600s
+even used something like it in his work.
+So not all the good ideas and
+analytics are new and cutting-edge
+sometimes the best ideas have been around for
+a long time and just need to be dusted off.

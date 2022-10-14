@@ -1,0 +1,125 @@
+>> In previous lessons we've seen how
+to build and fit regression models.
+But building and fitting models
+is not the end of the process.
+Once we fit our model,
+we can look at the output to see which attributes are
+really important or significant and which are not.
+There are some helpful indicators
+that you'll see in the output.
+First, there's the p-value for each coefficient which
+estimates the probability that
+the coefficient really might be zero.
+It's a type of hypothesis test.
+The common rule of thumb is that if
+the p-value of a coefficient is greater than 0.05,
+then we can remove it to attribute from the model.
+Other thresholds besides 0.05 can also be
+used depending on how
+conservative or not conservative you want to be with,
+including factors in your model.
+Higher thresholds allow more factors to be included,
+but make it more likely that in
+irrelevant factors part of the model,
+and lower thresholds restrict more factors from being
+included at the risk of leaving
+out irrelevant factor from the model.
+Regardless of the threshold you choose,
+for most factors, the decision is not ambiguous.
+P-values are often very low, 0.001 or lower,
+meaning that the attribute is almost certainly important,
+or they're very high, 0.3 or higher.
+I should mention too small warnings about p-values.
+First, when there's a very large amount of data,
+p-values get small even when attributes are not at
+all related to the response, so be careful.
+With so much data you need to be very
+careful relying on p-values.
+And second, even when p-values are meaningful,
+they are only probabilities,
+which means some of them will be wrong.
+For example, suppose you find
+100 attributes that each have a p-value of 0.02.
+Each of those attributes by itself looks significant,
+but by definition, each one will have
+a 2% chance of not being significant.
+With 100 such attributes,
+we would expect that two of them are really irrelevant.
+That might not seem like a lot,
+but depending on what you're modeling,
+the outcome could be really important.
+For example, suppose you're using
+daily intake of different types of nutrients or
+foods as attributes and
+probability of developing cancer as the response.
+Out of 100 foods you determine are significant at
+the 2% level to increasing or decreasing cancer risk.
+On average, two of them are really meaningless.
+Which means that if your study
+suddenly gets a lot of publicity,
+people might be avoiding peanut oil for no reason or
+start taking coconut supplements for no reason.
+And both of those foods industries
+could be drastically changed.
+So that's p-values.
+The second piece of output you can use to determine
+the importance of coefficients is related to the p-value.
+Most statistical software will give you
+a 95% confidence interval around the coefficient.
+So you can see where
+the coefficient lies and how close that is to zero.
+Third, also related is the t-statistic,
+the coefficient divided by its standard error.
+This too is related to the p-value.
+It's just another way of finding the same information.
+Finally, you can just look at the coefficient itself.
+Sometimes you'll discover that
+the coefficient when multiplied by the attribute value,
+still doesn't make much difference
+even if it has a very low p-value.
+For example, suppose you're trying to estimate
+household income and you're
+using age as one of the attributes.
+If the regression coefficient is one,
+even with a very low p-value,
+then the attribute really isn't very important.
+It's unlikely to make even a $100 difference,
+which isn't very meaningful compared to the magnitude of
+household incomes that are in
+the tens of thousands or higher.
+In addition to information about each coefficient,
+the regression output also includes
+information about the model as a whole.
+The most important information is often
+the coefficient of determination or R-squared value,
+which is an estimate of how much variability
+your model accounts for.
+For example, if the model has
+an R-squared value of 0.59,
+then it accounts for about 59% of
+the variability in the data.
+And the remaining 41% is
+either randomness or is due to
+other factors that your model does not capture.
+There's also a related measure,
+the adjusted R-squared, which
+adjusts for the number of attributes used.
+When you're using R-squared values,
+please keep in mind that
+some things just aren't easily modeled.
+In textbook homework assignments,
+you'll often get a nicely prepared dataset
+with great relationships,
+and you can sometimes get
+R-squared values as high as 90% or more.
+But in reality, that's rare.
+There's so many things that
+affect real life systems that it's often
+unlikely to get such a high R-squared value
+even with a very good model.
+And that's even more true when there are humans involved.
+When you're doing social science analysis,
+including behavioral analytics where
+you're modeling human behavior,
+R-squared values of 0.4 or even 0.3 are often quite good.
+I guess we humans are just hard to predict.

@@ -1,0 +1,119 @@
+>> In previous lessons,
+we talked about clustering,
+splitting a set of data points into groups
+based on their similarity and closeness to each other.
+And we saw a machine learning algorithm that
+k-means heuristic for finding good clusterings.
+In this lesson, we'll talk about some of the details
+involved with using the k-means algorithm in practice.
+First, you might be wondering
+what we should do with an outlier,
+a data point that's not
+close to any of the cluster centers.
+The k-means algorithm will simply assign
+the outlier to whichever cluster center is closest.
+But as you can see in the picture,
+it might not really be part of a cluster.
+As a default, you might just remove
+this point from your dataset and rerun the algorithm.
+That way the point doesn't drag
+its cluster center artificially to one side.
+But I personally think that's
+not always the right answer.
+The best way to deal with a point
+like this is often to find out more
+about it and what it means in
+the specific situation you're working on.
+What is this outlier?
+What makes its attributes so different?
+What's the implication of putting
+a point like this in the nearest cluster?
+Answering those questions can require time and effort,
+but it can really be important.
+It's part of what makes the difference
+between a topnotch analytics
+professional and someone who
+just blindly runs algorithms,
+and the difference in value you provide to your employer
+by doing the extra legwork can really be significant.
+In fact, there are lots of situations and
+analytics where the algorithm is really just a guide.
+Understanding the situation can
+help you make decisions that are
+more appropriate and a lot more
+valuable for your organization.
+And as much as people refer to a lot
+of what we do as data science,
+the best professionals also
+practice the art of analytics.
+Looking deeper at the combination of the data,
+the algorithm, and the real situation
+to find the right answer.
+Let me step down from my soapbox now and
+move on to another issue with the k-means algorithm.
+Remember that the k-means algorithm is a heuristic.
+It's not guaranteed to find the absolute best clustering,
+but it has the advantages of usually
+finding good clusterings and running very quickly.
+So we can take advantage of
+the speed by running it several times.
+Each time starting with
+different initial cluster centers.
+With different starting cluster centers,
+the algorithm might come up with
+different final clusterings and then we
+can compare them all and pick the best one.
+We can also use the algorithms speed to
+help us choose the right number of clusters to use.
+Instead of guessing how many clusters we might need,
+we can run k-means for different numbers of
+clusters and pick the best clustering solution.
+You might be wondering though,
+won't more clusters always seem better than fewer?
+If we start with a k cluster solution
+and then add an extra cluster,
+even if it's just a single data point,
+then the total distance from data points
+to their cluster centers gets smaller.
+So the clustering appears better with more clusters.
+In the extreme case, the best solution might
+seem to be to have one cluster for each data point.
+Just like when we asked how to deal with outliers,
+there are two answers.
+I'll give the qualitative one first, like before,
+the best solution is the one that best
+fits the situation you're analyzing.
+If your city only has a budget
+for four new fire stations,
+a clustering solution that gives
+six new areas might not be so helpful.
+But there are some quantitative ways
+to help guide your decision-making,
+even when seeing the cluster is
+impossible because your data has a lot of attributes.
+Suppose we find k-means
+clusterings for a bunch of different values of k,
+and for each one we calculate
+the total distance of each data point
+to its cluster center,
+we can plot that in two-dimensions.
+The horizontal axis is the number of clusters k,
+and the vertical axis is
+the total distance from points to cluster centers.
+Now we can look to see where the kink in the curve is.
+Here where the marginal benefit of adding
+another clusters starts to be small.
+This type of graph is sometimes called an elbow
+diagram because the point we're
+looking for might look like an elbow.
+It can often be useful as a starting point for
+answering the question of how many clusters to use.
+But don't forget to consider
+the qualitative aspects as well.
+Now that we've seen how to deal with outliers,
+how to use different starting points
+to improve performance,
+and how to choose the right number of clusters,
+there are still a couple of clustering
+details left to address.
+But for those, you'll have to wait for another lesson.

@@ -1,0 +1,88 @@
+>> In the previous lesson,
+we started learning about regression.
+We saw two different types of
+questions that regression can answer.
+Descriptive questions about
+how systems work and predictive questions
+about what will happen with other,
+perhaps future data points.
+We also saw what regression look like graphically.
+We're looking for a line of the form y equals a_0
+plus a_1 x_1 plus 2x_2 up through a_mx_m,
+that fits through our data points as closely as possible.
+In this lesson, we will see how
+to interpret regression coefficients.
+Suppose we're given n data points,
+each with a response and m different predictors.
+Let y_i be the response of the ith data point and X_i,
+j be the value of the jth predictor for data point i.
+In linear regression, we find
+coefficients a_1 through am and a constant a_0.
+So the model best fits the data.
+In the case of using regression to
+answer questions about how systems work,
+the key answers are the coefficients themselves.
+For example, if we want to use regression to
+determine how many runs
+the average home run is worth in baseball.
+We could compile data for
+each team over the course of several seasons.
+For each team and season,
+the response would be how many
+runs the team scored that season,
+and the predictors could be
+how many home runs, triples, doubles,
+singles, out, double plays,
+stolen bases, et cetera,
+the team had that season.
+After we fit a regression model,
+we will have coefficients for
+each of these baseball events.
+If the team hits one more homerun,
+the equation will suggest that the team should
+score a sub one more runs.
+Taking team data from
+the past three major league baseball seasons,
+a basic linear regression gives a value of about
+1.4 for the coefficient of home runs.
+In other words, every homerun hit will add an average
+of 1.4 runs to the team's total.
+On the other hand, if we're using regression to make
+forecasts than the key answers
+or the predicted responses.
+For example, if we want to use regression to predict how
+tall a two-year-old American
+will be when he or she is an adult,
+we could compile data for a lots of Americans.
+For each person, the response
+would be the person's height as an adult,
+and the predictors could be things
+like the person's father's height,
+mother's height, their own height at age
+two and whether the person is male or female.
+After we fit a regression model,
+we will again have coefficients
+for each of those predictors.
+So if we're given a new data point
+without a response, for example,
+a two-year-old boy's height
+and the height of his mother and father,
+then we can use this regression equation
+to predict the boys response.
+The boys predicted height as an adult.
+And then if our model suggests he'll be seven feet tall,
+we might immediately offer him
+a scholarship to play basketball at Georgia Tech.
+So we've now seen two different uses for regression.
+One, to describe what's going
+on and another to predict what will happen.
+As we saw a way back in the introduction to this course,
+those are two of the three major steps
+are components of analytics.
+Descriptive analytics, and predictive analytics.
+The only question regression isn't directly
+used to answer is a prescriptive analytics question.
+So it's not surprising that regression is one of
+the most commonly used tools in analytics.
+And we'll spend several more lessons going through
+a lot of the basics and extensions of regression.

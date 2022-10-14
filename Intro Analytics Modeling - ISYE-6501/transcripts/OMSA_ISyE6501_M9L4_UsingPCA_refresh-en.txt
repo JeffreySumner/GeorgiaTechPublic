@@ -1,0 +1,107 @@
+>> Hi, I'm Joel Sokol,
+Director of the Master of Science in Analytics degree at
+Georgia Tech and a professor in
+Georgia Tech's Stewart School of ISYE.
+In a previous lesson,
+we saw the basic idea of
+principal component analysis or
+PCA for doing feature extraction.
+Starting with a large number of factors and using them to
+generate a small number of
+factors that you can use to fit to a model.
+We also saw that PCA is useful for removing
+correlation between the factors you're going to use.
+You might remember this picture.
+In it, we started with a graph
+of two factors that are obviously
+correlated and changed coordinates to create
+two new factors denoted by
+the arrows that are uncorrelated.
+The picture also shows
+the relative importance of the factors.
+So if we only wanted to use one,
+we'd use D_1 which has more variation in it that
+can help create an explanatory or predictive model.
+That's where we stopped in the previous lesson.
+In this lesson, we'll see how PCA works mathematically.
+We start with a matrix of data X,
+where x_ij is the jth factor value for data point i,
+but after scaling, so that for each factor j,
+the average value of x_i j
+over all data points is shifted to be zero.
+Next, we find all of
+the eigenvectors of the matrix x transpose times x.
+If you don't remember what
+eigenvalues and eigenvectors are,
+finish up this lesson and then go ahead and
+watch the eigenvalue and eigenvector lesson.
+Let's call the matrix of all the eigenvectors, capital V,
+sorted in order from
+largest eigenvalue to smallest eigenvalue.
+Then the principal components are
+just the matrix X times the matrix V.
+The first principal component is
+X times the first column of V.
+The second principal component is
+X times the second column of V, etc.
+In other words, V is a linear transformation of
+the data from X to the principal components.
+Each new factor will be
+a linear combination of the original factors.
+Here's the formula for each t_ik,
+the kth new factor value for the ith data point.
+T_ik equals x_i1 times v_1k plus x_i2 times v_2k,
+etc, up to x_ im times v_mk.
+If you have enough data that you're just
+trying to remove correlation,
+then you can use the whole set of principal components.
+On the other hand, if you're also trying to find
+a smaller number of variables in your model,
+then you can decide how many variables you want,
+say n, and then use
+the first end principal components in the model.
+The math I've just shown you assumes that we're
+looking for a linear transformation,
+but it turns out that using kernels,
+you can use nonlinear functions also.
+You might remember the same idea from
+our lessons on support vector machine modeling.
+And just like in that lesson,
+I'm not going to go through the math.
+For this course, just know that it can be done,
+that the idea is the same and that
+most good analytic software can do it for you.
+You might be wondering though,
+suppose you use principal component analysis to
+find a transformed set of capital L factors,
+and then you use those factors in a model.
+How can you then go back and interpret
+the model in terms of the original factors?
+Let's use regression as an example.
+We have our new factor values t_ik,
+and the regression model finds coefficients
+b_0 and b_1 through b_l to
+estimate the response y_i is b_0 plus
+the sum from k equals 1 to L of b_k times t_ik.
+But the t vectors don't have
+nice intuitive explanations because they
+themselves are linear combinations
+of the original factors.
+Luckily, it turns out to not be hard.
+If we plug in the transformation formula
+for each t vector,
+we can find the implied coefficient a_j
+for each of our original factors
+j. A_j equals the sum from
+k equals 1 to L of b_k times v_ jk.
+So we can easily find a coefficient for each of
+the original factors and that way
+you give an intuitive explanation for the model.
+So that's principal component analysis or PCA.
+PCA can be a very helpful approach for both dealing with
+lots of factors and
+dealing with correlations between them.
+And models based on PCA can be transformed back to
+the original vector space so
+an intuitive explanation in
+terms of those variables can be given.

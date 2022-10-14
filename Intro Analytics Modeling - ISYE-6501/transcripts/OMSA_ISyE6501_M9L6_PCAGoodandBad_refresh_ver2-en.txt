@@ -1,0 +1,75 @@
+>> In this lesson,
+we're going to see examples of how
+principal component analysis or
+PCA can be helpful or not helpful.
+In a previous lesson,
+we saw the basic idea of using
+PCA for feature extraction.
+Starting with a large number of factors,
+we can use PCA to generate a small number of
+factors that are now
+uncorrelated that you can use to fit a model.
+In this picture, we started with
+the graph of two factors that are obviously
+correlated and changed coordinates to create
+two new factors denoted by
+the arrows that are uncorrelated.
+The picture also shows
+the relative importance of the factors.
+So if we only wanted to use one,
+we'd use d1 which has more variation in it
+that can help create an explanatory or predictive model.
+But just because D1 has more variation doesn't mean
+it's always the most helpful for
+explanatory or predictive modeling.
+Because PCA depends only on the independent variables,
+there's nothing about the response and the calculation.
+So although it's not so likely,
+it's possible that we could get
+a case where the response is
+only affected by variables with low variability,
+not by variables with high variability.
+Let's see two examples.
+In these examples, we're going to be
+using PCA for classification,
+but it's the same idea for other types of questions too.
+Here's an example of how PCA can be good.
+In this example, the principal component analysis
+has recommended two dimensions, D1,
+which you can see explains more variance,
+and D2, which you can see explains less variance.
+Conveniently, dimension D1 is also very
+helpful for differentiating between
+red points and blue points.
+In fact, if we put
+the dividing line exactly at the D2 axis,
+dimension D1 perfectly divides
+this dataset into red and blue points.
+So if we were using PCA to reduce
+the dimension of the dataset from two to one,
+the one dimension it would suggest we use,
+dimension D1, would still give us
+an excellent separator for classification.
+But what if the data points happen to
+look like this in Figure 2?
+PCA would give the exact same recommendation to use
+dimension D1 because it
+explains more variance than dimension D2.
+But now dimension D1 doesn't help
+separate between red and blue points at all.
+In fact, it's dimension D2,
+the one that PCA suggests
+we not use if we're reducing to one dimension,
+that's a helpful separator.
+So you might be wondering why we would use
+PCA at all if something like this could happen?
+The answer is that often dimensions that have
+more variability or better differentiators,
+specifically because they have more information,
+that's not always true.
+So using PCA to
+reduce the dimension of the dataset without
+losing too much explanatory or predictive power
+isn't always helpful,
+but overall, it's often an approach that can
+help reduce dimension without losing too much.

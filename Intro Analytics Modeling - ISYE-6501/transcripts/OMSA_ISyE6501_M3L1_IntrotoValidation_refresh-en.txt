@@ -1,0 +1,125 @@
+>> Hi, I'm Joel Sokol,
+Director of the Master of Science in Analytics degree at
+Georgia Tech and a professor in
+Georgia Tech's Stewart School of ISye.
+In this lesson we'll talk about validation,
+checking to see how good a model is.
+Validation is a very important topic.
+When you present a model to a boss or a client,
+one of the first questions they're
+likely to ask is how good is it?
+How accurately does it classify loan applicants?
+Or how well does it predict future sales?
+Or how often does it correctly determine whether
+a transplanted liver will
+transmit infectious encephalitis?
+Let's look at an example from classification.
+We might be tempted to look at
+the data points we use to create the classifier.
+In this picture, we have 24 data points
+and only three of them are on
+the wrong side of the classifier.
+So we might say that our model
+correctly classifies 21 out of
+21 plus three or 87.5 percent of the data points.
+That's a pretty easy calculation but
+unfortunately it's the wrong thing to do.
+The reason is that we fit
+the model to these data points called
+the training data or training set and
+then we measured how well it did on that same set.
+But that measure is likely to be
+too optimistic and here's why.
+Any dataset, including our training set
+has two types of patterns in it.
+Some patterns are real effects,
+real relationships between attributes and the response,
+and other patterns are random effects.
+Just at random, the data might look like
+it contains a pattern when it really doesn't.
+The problem is, we don't know
+which patterns are real and which are random.
+So when we fit a solution to a training set,
+we're finding something that fits
+both the real effects and
+the random effects but
+when we use our solution on different data,
+only the real effects are still present,
+the random effects will be different.
+That means our solutions performance won't quite
+be as good on different data
+as it is on the training set,
+we'll be matching only the real effects but
+not the random effects so we'll have
+fewer correct predictions on
+new data than on the training data.
+Let's see a quick example.
+The first time I taught this class,
+I asked the ten people sitting in
+the back row what day of the month they were born.
+If they were born on November 16th,
+then they would say 16.
+If they were born on March 3rd,
+they would say three, etc.
+Here are the responses I got.
+Based on this data, it seems
+pretty obvious that people in
+our Analytics degree are much more likely
+to be born in the last ten days of a month.
+And if I wanted to build a predictive model to
+guess what day of the month each of you is born,
+my best bet might be to pick
+the 26th right in the middle
+of where nine of the 10 data points lie.
+Now you all probably realize that this is silly.
+There's no reason I can think of that
+analytic students should be
+born in the later part of the month.
+And if I asked you what made the data look like this,
+you'd probably tell me it was just randomness.
+Really analytic students are
+born just like everyone else,
+uniformly distributed through the month.
+And of course you'd be right.
+This odd data really is just a random effect and that's
+exactly why we can't measure
+my model's effectiveness on the training data.
+If we did, my model would look great.
+For nine of the 10 data points,
+I'd be quite close to the right birthday
+off by five days or fewer but
+on a different set of data where people are
+likely to be born uniformly through the month,
+my model would probably be off by a lot for many people.
+So you might be wondering whether I just
+got lucky in my demonstration.
+After all, how can I know
+that there would be such a weird bit of
+randomness where nine of 10 people
+were born on the 21st or later.
+But really I didn't get lucky.
+I didn't know this exact thing would happen,
+but I knew there would be
+some random pattern I could use for the lesson.
+Maybe a large majority would be
+born early in the month or right in the middle
+or maybe lots of people would be born on
+an even number day or an odd number day,
+or a day that's a multiple of three or close to one of
+the three days of the month that my kids
+were born on, or who knows what.
+But the point is, I'd be able to find
+some sort of random pattern
+that wouldn't hold up on new data.
+So that shows why we can't just measure
+our model's effectiveness on
+the set of data it was trained on.
+By fitting the model to the training data,
+we've captured both the real effects
+and the random effects
+and only the real effects are
+likely to show up in other datasets.
+So if we can't measure
+our model's effectiveness on its training data,
+how do we measure the model's effectiveness?
+We'll see that in another lesson.

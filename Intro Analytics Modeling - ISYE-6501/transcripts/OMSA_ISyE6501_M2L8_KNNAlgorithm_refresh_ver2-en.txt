@@ -1,0 +1,114 @@
+>> In this lesson, we'll talk about
+a simple model for solving classification problems,
+which can easily deal with cases
+in which there are more than two classes.
+This model is called the k nearest neighbor or
+KNN model and the basic idea is simple.
+Suppose we have a dataset with
+two predictors and a response.
+For example, a bank might be
+trying to decide whether or not to give
+loans to applicants based on
+the applicant's credit scores and incomes.
+We can plot all the information on a graph
+where the horizontal axis shows credit score,
+the vertical axis shows household income and
+each previous applicant is
+either a blue data point if
+they repaid their entire loan,
+or a red data point if they defaulted.
+Instead of trying to draw a line or
+other function to separate
+the red points from the green points,
+we can use a different approach.
+Assume that each new applicant is
+similar to previous applicants that it's closest to.
+For example, if we look at
+the five closest points to this new one,
+four of them are blue,
+and only one is red.
+So we might assume that the new data point is more likely
+to be blue and recommend giving that person a new loan.
+As you might expect,
+there's nothing magical about
+using the five closest points.
+We can pick any number of points to use.
+Usually the number of points we're using is denoted by K,
+which is where the name K nearest neighbor comes from.
+This works easily not just for two classes,
+but also for more.
+In this example, each color is a different class.
+Let's say k is seven.
+When a new point is found,
+we look at the seven closest points
+and pick the color that appears the most.
+In this example, there are two orange points,
+one green point and four red points.
+Red appears the most,
+so we classify this new point as red.
+So that's pretty straightforward,
+but there are some complexities you should be aware of.
+Each of these is covered in
+other topics so you can either look ahead to get
+a sneak preview or just keep in mind that
+you learn how to deal with them
+as we go through this course.
+First, when we're looking for the k closest points,
+there's more than one way to measure distance.
+The most common method is to use
+straight-line distance but there are others as well.
+If you haven't yet seen the lesson on
+distance metrics, please view it soon.
+A second complexity is that some attributes
+might be more important than
+others to the classification.
+One way to deal with this is to weight
+each dimension's distance differently.
+The larger the weight,
+the greater the impact of that dimension's distance.
+Finding the right weights can be
+harder and might require techniques
+you'll see in other topics in
+this course, regression, for example.
+In the extreme case,
+some attributes might not be very
+important at all for classification,
+so much so that we can remove
+those attributes and only measure distance
+in the important ones.
+We see how to do this in the variable selection topic.
+Finally, you've probably been
+wondering how to find the right value of
+k. How many closest points should
+you check when trying to classify a new point?
+We have to try different values of k and
+measure how well each value of k works.
+Measuring the quality of a model is called
+validation and we'll see
+how to do it as part of this course.
+In fact, if you haven't yet seen
+the lessons in the validation topic,
+this might be a good time to view them.
+So this completes the classification topic.
+We've seen what classification is and
+what questions classification can answer.
+The intuition and math behind
+the support vector machine approach to
+classification and a different approach
+to k nearest neighbors method of classification.
+I should point out that both of
+these approaches are basic machine-learning algorithms.
+So if you've been wondering when we
+get to machine learning in this course,
+the answer is we're already there.
+In the process, we've also covered
+some important concepts in
+analytics that cut across multiple models.
+For example, data terminology and datatypes,
+validation, distance metrics, and confusion matrices.
+These will come in handy when we get to other topics too.
+Next step is an assignment to give you
+an opportunity to get your hands into
+some classification questions on real data sets
+and then we'll move on and tackle
+the next topic. See you soon.

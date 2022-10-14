@@ -1,0 +1,120 @@
+>> Hi. I'm Joel Sokol Director of
+the Master of Science in Analytics Degree
+at Georgia Tech and a Professor in
+Georgia Tech's Stewart School of ISE.
+In this lesson, we'll talk about classification,
+including what it means,
+examples of when it's important,
+and a simple demonstration of how classification works.
+Then in later lessons,
+we'll see a basic model
+for solving classification problems.
+Classification and analytics has
+the same meaning as it does in
+everyday life putting things into categories.
+The simplest examples of
+classification are when there are two categories,
+which are often just yes and no.
+For example, a bank might want to differentiate between
+loan applications who will
+fully repay their loan and those who won't.
+A security agency might want to differentiate
+between a regular person and a potential terrorist.
+An automated email filter might need to
+differentiate between real and spam email.
+A legal document system might
+be designed to differentiate between
+documents that are relevant or
+irrelevant to a certain case.
+In my own research,
+we're working with the CDC on a project to increase
+the number of organs that can be
+given to people in need of a transplant.
+And one of the questions we use analytics to answer is,
+is this organ safe to transplant or
+does it carry a deadly infectious disease?
+Of course, one answer would be to
+subject the organ to a laboratory test,
+but if the donor was recently infected,
+the test might not come out positive yet.
+So we need the analytical approach.
+In each case, we can use
+classification models to put applicants,
+people, documents, livers, etc,
+into one of the categories.
+And as you can imagine,
+having more than two categories as well is possible.
+For example, a political consultant might want to
+differentiate between supportive voters,
+opposition voters, and undecided voters or
+a paleontologist might want to differentiate
+between many different species of dinosaurs to
+determine which one in newfound bone belongs to.
+Each of these classification questions will
+require some data in order to get answers.
+For example, for loan applicants,
+a bank might collect data on income,
+credit history, age, family size,
+assets, liabilities, and more.
+Based on those attributes of
+previous loan recipients and
+the bank's observation of
+whether each loan was repaid or not,
+the bank can then build a model to
+help classify future applicants.
+Let's see how this would look graphically.
+Suppose the bank is trying to
+decide whether or not to give loans to
+applicants using the applicants
+credit scores and incomes.
+So we can plot each past
+recipients information on this graph.
+The horizontal axis will show
+credit score and the vertical axis
+will show household income.
+For example, someone with a credit score of 730 and
+an income of $76,000 a year would be this data point.
+If they repaid the entire loan,
+we'll mark the data point in blue.
+If they defaulted, we'll mark it in red.
+Of course, in real life,
+there might be other factors,
+each of which would be another dimension,
+length of time as a customer of
+this bank might be a third factor,
+number of dependents might be a fourth,
+total assets and liabilities would be a fifth and so on.
+But as my wife,
+the artist, could tell you,
+I have enough trouble drawing
+clear two-dimensional pictures.
+Three-dimensions is really iffy for me and I
+have no idea how to draw it on four more.
+So we'll use this two-dimensional picture
+to see how classification works.
+As you can see, we can draw a line like this that
+separates between the blue points
+above and the red points below.
+So if we want to use this data to
+decide whether to offer a loan to a new applicant,
+we can just see where the new applicants data point
+would be relative to the line.
+An applicant up here,
+would be in the blue zone.
+So we might want to give them a loan.
+An applicant down here,
+would be in the red zone so we
+might not want to give them a loan.
+But how do we know that we've drawn the right line?
+There are lots of lines, infinitely many,
+in fact, that would also
+separate the blue points from the red ones.
+Wow, stop. Too many lines.
+You might be wondering what's
+the difference between all the lines we choose.
+After all, they all seem to
+separate between the blue and red points.
+Which one is the best?
+That's a great question.
+And in a future lesson,
+we'll see the answer.

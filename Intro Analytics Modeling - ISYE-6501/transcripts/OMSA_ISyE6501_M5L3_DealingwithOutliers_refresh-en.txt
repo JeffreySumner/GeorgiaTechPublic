@@ -1,0 +1,117 @@
+>> In a previous lesson, we talked about what
+outliers are and how to find them in a dataset.
+In this lesson we'll take the next step,
+what to do when you find outliers?
+Part of the answer depends on what caused the outlier.
+Often outliers are just bad data.
+A sensor might have malfunctioned or
+a wireless transmission between
+sensor and receiver might have failed,
+an experiment could have been contaminated for example,
+bacteria could have accidentally
+been introduced to a medical test,
+a person might have input
+the wrong data or copied the wrong value.
+But sometimes outliers show something
+real in the system and if it's something
+real you need to find out what caused it
+and decide whether your model
+needs to consider it or not.
+Answering those questions, whether
+the outlier is real or an error,
+an if it's real what to do about it
+usually requires you to do some investigation.
+Looking into where the data came from,
+how it was compiled,
+what unique situations were there
+for outlier data points, etc.
+It means you'll have to look deeper than
+just a dataset and a model but understanding
+the outliers and dealing with them
+correctly is a great way to help
+ensure that your models results are
+valid and valuable to your employer.
+If the outlier is
+just bad data we might want to omit those data points.
+Or if we need to use
+the data point and we need some value for
+the erroneous factor value you could use
+the data imputation techniques we
+cover in another lesson in this course.
+But what if the outlier is real correct data?
+Then you have to think more about the system.
+It might be that sometimes there's
+enough true randomness that if you
+have enough data you will almost
+certainly have some real outlying values.
+For example, if there's normally distributed
+randomness then more than 4% of
+the data will be more than two
+standard deviations from what's
+expected and for large data sets it's even worse.
+If you have a million data points then about 2,000
+of them will be more than three standard deviations
+from what's expected.
+In this situation you need to consider
+what's going on in what you're modeling carefully.
+Is it important to consider
+these outliers as part of the model?
+If the magnitude of
+your models error is part of the measure of
+its value then maybe you should
+keep some of these outliers in the dataset.
+For example, if you're modeling the time it takes
+to transport perishable medicine from where
+it's manufactured in the United States to where it's
+needed in Africa and occasionally
+weather events or political issues in Africa
+make it take a really long time
+then considering those outlying data points is
+important because it's something that really occurs.
+If you throw that data out
+entirely then your model will be
+too optimistic and reality
+will give you some bad surprises.
+But you might want to deal with the outliers differently.
+For example, you could build one model to estimate
+the probability of these outliers
+happening under different conditions,
+maybe a logistic regression model
+for example and then build another model to
+estimate how long delivery takes under
+normal conditions using data with the outliers removed.
+Of course, sometimes you'll
+find out that outliers just aren't
+predictable at all and might
+need to be removed even if they're real data.
+For example, I was working on a project for Chick-fil-A
+a few years ago and we were
+looking at their weekly sales data.
+The data all looked pretty clean except for
+one week where there is a huge spike upward,
+like this except I can't
+show the real data due to confidentiality.
+That one week was so big in outlier that
+we're almost sure it was just bad data
+and we're just about ready to toss it out but we asked
+our Chick-fil-A contact just
+in case and it's a good thing
+we did because it really was a true data point.
+It turns out that a Chick-fil-A executive
+had said something that turned out to be
+controversial and some people called
+for a boycott of Chick-fil-A as a protest
+and in response other people decided
+they would eat at Chick-fil-A as a counter protest.
+And overall there are a lot more extra people
+eating at Chick-fil-A that week than
+there were boycotters not eating there
+so there was a huge spike in the data.
+In the end it turned out that we had to
+remove that data point anyway,
+both we and the company assumed it was
+a onetime event that we shouldn't try to
+model but it shows that
+even if you think you're sure of what's going
+on it's always a good idea to
+investigate the data just in case you're wrong.

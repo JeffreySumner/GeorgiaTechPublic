@@ -1,0 +1,114 @@
+>> Hi I'm Joel Sokol Director of the Master of Science in
+Analytics degree at Georgia Tech and
+a professor in Georgia Tech's Stewart School of ISYE.
+In this lesson we're going to talk about
+feature extraction using a method called
+principal component analysis or
+PCA for dealing with
+high dimensional and correlated data.
+In many analytics applications
+we might have lots of factors that we can
+use in our model and we want to know which subset
+of them are most important for predicting response.
+For example we might wonder whether we
+could use the performance of certain stocks
+on one day to predict
+overall market performance on the next day.
+In that case we can have a lot of predictors.
+In the United States about 3,000
+securities are traded on the New York Stock Exchange,
+Another approximately 3,000 are traded on
+the Nasdaq plus a few 100 traded on ethics.
+Of course sometimes external events
+have a strong effect on the markets; wars,
+terrorist attacks, election results,
+natural disasters, etc all can have significant effects.
+But maybe on other days there's
+a good combination of stocks we could use for prediction.
+But there are two difficulties with this approach.
+First with more than 6,000 predictors not
+even including possible interaction effects
+or other variables.
+We would need lots of data to
+avoid having the system be over determined.
+Since each data point is
+one day that means we need many years of
+data so many that
+the underlying situation we're
+trying to model might have changed.
+For example perhaps these days,
+Tesla's stock is a good predictor
+but Tesla wasn't publicly traded
+until mid 2010 so we won't be
+able to see its effect in much of our dataset.
+On the other hand maybe back in 1997,
+Kmart stock would have been
+a good predictor but it was merged with
+Sears in 2004 and
+these days many Kmart stores have been closed.
+We'd like a way to reduce the number of predictors we
+use and we don't want to need so many years of data.
+And there's a second potential problem.
+Some of the predictors might be highly correlated,
+for example within the energy sector
+the stock prices of ExxonMobil,
+Chevron and Phillips 66 might move
+up and down relatively in sync with each other.
+The same might be true about
+General Motors and Ford for example.
+The good news is that we can
+often address both problems at
+once using a method called
+principal component analysis or PCA.
+PCA is a way to transform data to do two things.
+It changes the coordinates to remove
+correlation and it ranks
+the coordinate dimensions in order of the amount of
+variance in each so
+the most important coordinates are first.
+Concentrating on the first n principal components
+can also have the benefit of
+reducing the effect of randomness.
+If the randomness is about
+the same level for every factor then
+the first principal component is hired is
+likely to have a higher signal to noise ratio.
+The variation between the data points
+is likely to be driven by
+a higher ratio of actual effects to random effects.
+The further down the list of principal components we go
+the lower the signal to noise ratio is likely to be.
+Before we get to the math,
+let me show you a picture of what PCA looks like.
+Here's a picture of some data that has
+two dimensions, two factors.
+As you can see there's
+a strong correlation between the two factors.
+The higher one gets,
+the higher the other one gets.
+But if we were to rotate the picture
+and then create a new coordinate system in
+this rotation then the correlation
+between directions in the new coordinate system is 0.
+The two directions are orthogonal.
+If we express our data in terms of
+these new coordinates there won't be
+any correlation and of course
+rotating the picture was
+just to make it look more obvious,
+we could rotate the picture
+back and the correlation is still 0.
+So that's pretty cool but
+there's even a little more going on here.
+Let's call our two new dimensions d1 and d2.
+As you can see the data has a much wider spread of
+values in the d1 direction
+than it does in the d2 direction.
+PCA will recognize that and automatically make
+d1 the first dimension and d2 the second dimension.
+If we just want to use
+a one-dimensional factor we
+know that d1 is a better bet than d2.
+And that's all PCA really is except of course for
+the underlying math and that
+math is what we'll see in an upcoming lesson.

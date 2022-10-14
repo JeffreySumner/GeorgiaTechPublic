@@ -1,0 +1,142 @@
+>> In the previous lesson,
+we saw a method called
+exponential smoothing for analyzing time series data.
+Data where the same response is
+known for many time periods.
+If x_t is the observed value at time t, for example,
+a person's blood pressure at time t and S_t minus
+1 is our estimated baseline value
+at the previous time period, t minus 1,
+then we can estimate time t's baseline value,
+S_t equals Alpha times the observed value x_t,
+plus 1 minus Alpha times
+the previous baseline, S_t minus 1.
+Alpha, which is between 0 and 1,
+helps us trade off between trusting
+our observation x_t when Alpha is large,
+and trusting our previous estimate,
+S_ minus 1 when Alpha is small.
+The more randomness there is in our system,
+the more we should trust
+our previous estimates and select a small Alpha
+so our baseline won't be excessively
+sensitive to our random fluctuations.
+And the less randomness there is in our system,
+the more we should trust what we see.
+If we observe a fluctuation,
+it probably indicates a real change.
+As we saw in the previous lesson,
+there might be other reasons besides just randomness,
+why baseline estimates might change over time.
+There could be trends, the value we're measuring might
+naturally be increasing or decreasing over time.
+And there could be cyclical patterns
+, annual temperature cycles,
+weekly sales cycles or
+daily blood pressure cycles, for example.
+In this lesson, we'll see how to include
+trends and cycles in the exponential smoothing model.
+Let's start with trends.
+We can easily deal with trends similarly to our baseline.
+Let's call T sub t,
+the trend at time period t. So our baseline
+S_t now is Alpha times our observation x_t,
+plus 1 minus Alpha times our previous estimate.
+But the previous estimate now includes a baseline term,
+S_t minus 1 plus a trend term T sub t minus 1.
+And we can estimate the new trend T sub t,
+just like we do for the baseline.
+T sub t equals
+another constant Beta times the observed trend,
+which is the difference between the two baselines,
+or S_t minus S_t minus 1,
+plus 1 minus Beta times the previous trend estimate,
+T sub t minus 1.
+As our initial condition,
+just like we started with
+the first baseline equal to the first observation,
+our S1 equals x_1,
+for trend we'll start with 0, T_1 equals 0.
+We can also deal with cyclic patterns in the same way as
+trend by making them
+an additive component of the formula.
+And in some cases that's the right thing to
+do but I want to show you an alternative way,
+so you'll have both in your toolbox.
+The alternative is to deal with cyclic patterns,
+which are also called seasonalities,
+in a multiplicative way.
+Here we need a little more notation.
+Let's say L is the length of a cycle,
+if we have a seven-day cycle and
+we're taking daily observations,
+then L is 7,
+or if we take blood pressure readings every
+hour and there's a daily cycle, then L is 24.
+We'll let C_t be
+the multiplicative seasonality factor for
+time t. The seasonality factor will
+help us inflate or deflate
+the observation based on
+the part of the cycle that time period t is in.
+So here's what our new baseline formula will look like,
+including both trend and seasonality.
+S_t equals Alpha times the observed value x_t
+divided by the cyclic factor C of t minus L,
+plus 1 minus Alpha times
+the previous baseline estimate of
+S_t minus 1 plus T_t minus 1.
+Note here that when we're using
+a cyclic factor to inflate
+or deflate the observed value,
+we use the cyclic factor from L time periods ago.
+Why? Because that's the most recent cyclic factor
+we have from the same part of the cycle.
+For example, if today is Monday,
+we use last Monday's cyclic factor.
+That's how we get the baseline estimate.
+Trends are updated in the same way as before,
+and we also update
+the seasonal or cyclic factor in a similar way as before.
+C_t equals a new constant Gamma times
+the observation x_t divided by the baseline S_t,
+plus 1 minus Gamma times
+the previous factor for this part of the cycle
+C_t minus L. Notice
+that in the equations for S_t and C_t,
+we're multiplying and dividing.
+So we're saying, for example,
+that if C is 1.1 on a certain Sunday,
+it means that hamburger sales were
+10% higher simply because it was a Sunday.
+If we sold 550 hamburgers that day,
+then 500 of them where the baseline value and
+50 where the 10% extra demand
+that we generally see on Sundays.
+Just like before, we need some starting conditions,
+otherwise we won't know what
+C_t minus L is at the beginning.
+For trend, we use T_1 equals 0 as
+a starting condition to show no initial trend.
+For multiplicative seasonality,
+multiplying by 1 shows no initial cyclic effect,
+and we need L of them.
+So the first L values of C are set to
+one and we let the data to take care of everything else.
+And that's the exponential smoothing model,
+this method is sometimes called single,
+double or triple exponential smoothing,
+depending on how many aspects
+like trend and seasonality you include.
+Triple exponential smoothing with
+the base equations plus trend
+and seasonality is also called
+Winter's method or Holt-Winters.
+There are a couple of details left to talk about.
+How to use exponential smoothing,
+not just for descriptive analytics,
+but also for forecasting,
+and, as you might have been wondering all along,
+where the name exponential smoothing comes from.
+We will see the answers to
+those questions in future lessons.

@@ -1,0 +1,104 @@
+>> Hi, I'm Joel Sokol,
+Director of the Master of Science in Analytics degree at
+Georgia Tech and a professor in
+Georgia Tech's Stewart School of ISYE.
+In this lesson, we're going to talk about outliers,
+data points that are very different from the rest
+of the dataset we'll see what they are,
+how to find them, and what to do about them.
+As a preview, I can tell you that the answer is as usual,
+almost always it depends,
+but it's even more true for outliers because there are
+philosophical issues as well as statistical one's.
+An outlier is a data point that's
+very different from the rest of the dataset,
+the most obvious form of outliers where the value of
+a data point is very different from
+the rest of the data like in this picture,
+0.01 is very different from the rest,
+this is sometimes called a point outlier,
+and it's what comes to most people's minds
+when they hear the term outlier.
+But also in this dataset,
+we might call the few points at O2 outliers also,
+because there are only a few of them and they are very
+different from the overwhelming majority of the data,
+you might wonder whether
+the O2 points are really outliers.
+Maybe there's a good reason for them
+being there and you might be right.
+We'll discuss that issue soon,
+but before that, let's see
+another couple of types of outliers.
+Here's a picture of an outlier in time-series data.
+It has just one point
+that's far from the rest of the curve,
+the temperature value at
+this point isn't itself an outlier,
+but the time at which it occurs makes it
+an outlier compared to the rest of the data.
+This type of outlier is sometimes called the contextual
+outlier because it relies on
+the context provided by the other points.
+And here's a case of
+time series data where there's an outlier by omission,.
+In this heartbeat data,
+it looks like there should be a large beat
+around times 6,000, but there isn't.
+It's hard to tell exactly
+which data points should be called wrong,
+but sometime in there between time
+5,000 milliseconds and time 7,000 milliseconds,
+it seems like there's something missing.
+This type of outlier is sometimes called the collective
+outlier because the data points
+collectively seem to be an outlier,
+we could also think of this in terms
+of the time between beats.
+If we track that data,
+then most inter beat times will
+be around 1,000 milliseconds,
+except the one between 5,000 and 7,000,
+which will be a point outlier
+of about 2,000 milliseconds.
+That was the easy part,
+looking at pictures and noticing outliers,
+the hardest part is deciding what to do once
+we've found an outlier but before that,
+let's talk about how to find
+outliers in a more automated way.
+To find point outliers in just one dimension,
+we could use a box and whisker plot.
+The top and bottom of the box,
+or the 25th and 75th percentiles of the values and
+the horizontal line through the middle of the box
+is the median, the 50th percentile.
+The vertical lines up and down
+from the box are called the whiskers
+and they stretch up and down to what you might
+think is a reasonable range of values,
+for example, we might pick the 10th,
+90th percentiles are the fifth and 95th.
+Beyond that, we plot a point for
+each value that's outside the reasonable range,
+and those points are possible outliers.
+Unfortunately, there's not
+a good all-purpose way of detecting
+multi-dimensional outliers or other types
+of outliers that we could use upfront.
+But one thing we could do is to build a model,
+fit the parameters, and then see
+which points have a lot of error, for example,
+suppose we fit an exponential
+smoothing model to this data,
+it's a nice smooth function and in each time period,
+the errors between the actual value on
+the model's estimate will be small, except here.
+At this point, the model's error will be very large,
+the model will expect a point that's right up on
+the smooth curve and the actual value is far from it,
+but that's only half the battle.
+Once you've found an outlier,
+the next question is,
+what should you do about it?
+That's a question we'll deal with in an upcoming lesson.

@@ -1,0 +1,88 @@
+>> In previous lessons,
+we saw a method called
+exponential smoothing for analyzing time-series data.
+Data where the same response is
+known for many time periods.
+You might be wondering where
+the name exponential smoothing
+comes from and in this lesson, we'll see the answer.
+Let's see the second word first.
+Smoothing.
+Here's the basic exponential smoothing equation.
+We'll use single exponential smoothing
+in this lesson and as you'll see,
+the trend and seasonality
+components will work exactly the same way.
+Let's look at the exponential smoothing equation and
+assume that Alpha is somewhere in-between zero and one.
+You could think of it as being a half,
+but the intuition is the same for
+any other value besides zero and one.
+We can see from the equation how
+spikes in the observed data,
+both high and low, are smooth down.
+If we have a really high observed value,
+X_t, the baseline estimate S_t is not as high.
+The high observation is only weighted by Alpha,
+which is less than one,
+and it's pulled down from that high point by
+the previous baseline, S_t minus 1.
+And the same is true for very low observed values.
+The 1 minus Alpha times S_t minus 1 term
+pulls it up from the low observed value.
+Here's a graph of what it looks like.
+As you can see when there are high peaks and valleys,
+the exponential smoothing curve
+does indeed smooth things out.
+And that's where the word smoothing comes
+from in the name exponential smoothing.
+Now let's look at the word exponential.
+Again let's start with
+the basic exponential smoothing equation.
+Here we have the previous time periods baseline estimate
+S_t minus 1,
+but that itself can be written using
+the same method as Alpha times X_t minus 1,
+plus 1 minus Alpha times S_t minus 2.
+So let's plug that in and here's what we get.
+Now we have S_t minus 2 and we can plug in for that too.
+And again for S_t minus 3,
+and again for S_t minus 4.
+And we could keep going but let's stop here.
+When we look at our equation for S_t,
+we can see each observation going back into the past,
+each weighted by 1 minus Alpha to an increasing exponent.
+And that's where the name exponential
+comes from in exponential smoothing.
+As long as we have this extended form
+of the exponential smoothing equation up,
+let's see one more important thing
+about exponential smoothing.
+In the basic equation,
+it looks like only the previous time
+periods observation matters when
+estimating the current baseline S_t
+but the extended form shows the truth.
+Every single pass the observation
+contributes to the current baseline estimate S_t.
+All the older ones are just
+baked into the term S_t minus 1.
+So past history, all of it is
+still considered when finding
+the current baseline estimate.
+But you might think that
+more recent observations are more
+important than very old ones if
+you're estimating what's happening now,
+and the exponential smoothing formula
+makes that happen too,
+because 1 minus Alpha is less than 1,
+newer observations are weighted
+more than old observations.
+So not only does the extended form of
+the exponential smoothing equation
+explain where the name exponential smoothing comes from,
+it also makes it clear that
+all past observations are accounted for,
+with the more recent observations being
+more important to the current baseline estimate.

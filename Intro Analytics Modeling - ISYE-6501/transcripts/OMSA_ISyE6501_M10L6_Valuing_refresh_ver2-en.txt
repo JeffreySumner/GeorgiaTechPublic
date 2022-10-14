@@ -1,0 +1,80 @@
+>> In this lesson, we will see how to use
+measures of a model's quality to
+evaluate and compare different possibilities
+and choose the best one.
+I'll illustrate the method using a confusion matrix.
+So if you're not familiar with the concept,
+please watch the confusion matrix lesson first.
+I see you're still here so I'll assume that you're
+not confused about confusion matrices.
+Let's use the same example we had there.
+We've built a support vector machine model
+to filter out spam from our email.
+After testing it on 1,000 emails,
+500 of which are valid and 500 of which are spam,
+we found that 490 of the 500 really emails are correctly
+classified and only 100 of
+the 500 spam messages make it through to the inbox.
+Here's how we can use the confusion matrix
+to evaluate a model,
+we just need one additional piece of information,
+the cost of lost productivity.
+There's zero productivity costs to correctly
+classifying real messages and
+to correctly filtering out spam.
+But what if someone wastes time reading spam?
+I've seen more than one estimate of the cost.
+Let's use one estimate I've seen
+about $0.04 per message read.
+Estimating the cost of missing
+a real message because it was
+classified as spam is harder.
+Let's say that's $1 per message.
+Assuming half of e-mail is really spam,
+as in our example,
+the total expected cost of 1,000 messages is 490 times
+$0 plus 10 times $1 plus 100 times $0.04,
+plus 400 times $0 or $14.
+Here's the cost of
+the true positives are
+correctly identified real messages,
+the cost of false negatives,
+real messages that are filtered out incorrectly.
+The cost of false positives spam that's not filtered out,
+and the cost of true negatives correctly filtered spam.
+Overall, that's about 1.4 cents per incoming email.
+What if our initial assumption is wrong though?
+Maybe only 40% of email is spam and 60% is real.
+Then we just need to scale
+each of our entries in the table.
+Real email gets scaled up from 50%-60%,
+and spam gets scaled down from 50%-40%.
+Now, it's about 1.52 cents per incoming email.
+This is very helpful information by itself,
+but it can also help us compare different models.
+Let's look at our original model's confusion matrix.
+Looking at the ratio of false positives to
+all positives or all email that gets through,
+we know that about 17% or one out
+of six of the message is in the inbox will be spam.
+One out of six might sound like a lot.
+So suppose we develop
+another stricter model that filters out more spam,
+but as a result, more real email
+gets accidentally filtered out too.
+Using this new model,
+our inbox would have
+about one out of 10 messages be spam.
+As a person who has to wade through
+a lot of spam some mornings,
+this sounds like a nice improvement.
+But is it really? Let's look
+at the cost of the new model.
+Now that's 5.2 cent per incoming email,
+a lot worse than the first model.
+Even though the second model classifies more email
+correctly and reduces the amount of spam in my inbox,
+it's actually worse than the first model
+because it makes me miss more real messages,
+some of which might really be pretty important.
+It looks like I better go quick. See you next time.

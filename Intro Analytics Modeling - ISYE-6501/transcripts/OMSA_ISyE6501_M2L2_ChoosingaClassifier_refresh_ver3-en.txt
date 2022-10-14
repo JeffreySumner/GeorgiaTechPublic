@@ -1,0 +1,165 @@
+>> In this lesson, we will see how to think
+about tradeoffs and classification problems
+graphically to build your intuition
+before we get to the underlying mathematical models.
+Then in a later lesson,
+we'll see the models for solving classification problems.
+Hopefully, you remember from our previous lesson
+that classification and analytics has
+the same meaning as it does in everyday life,
+putting things into categories.
+We talked about a bunch of examples including one,
+a better bank that's trying to
+decide whether or not to give loans to
+applicants based on
+the applicants credit scores and incomes.
+We plotted all the information on a graph
+where the horizontal axis shows credit score,
+the vertical axis shows household income,
+and each previous applicant is
+either a blue data point if
+they repaid their entire loan,
+or a red data point if they defaulted.
+We drew a line that separates between
+the blue points above and the red points below,
+and showed how we could use the line to determine whether
+to give a loan to a new applicant or not.
+Then we wondered whether it was
+the right line to draw because there are
+so many other ones we might
+also draw. Here's the problem.
+Consider just these two lines
+called separators or classifiers.
+For lots of applicants like the two black points,
+both classifiers make the same decisions.
+But how about this applicant?
+The lower classifier would suggest
+that we give this applicant a loan,
+while the higher classifier would
+suggest that we deny the loan application.
+Which one should we use?
+That's a great question.
+In general, we'd like to choose
+a line that's further from making mistakes.
+Here's what I mean. Suppose we use this line to separate.
+It gets pretty close to
+a red point and pretty close to a blue point,
+which means that it almost
+makes a couple of mistakes in classification.
+If the line or the points where a little bit different,
+the line might misclassify them.
+That's important because the input data might be inexact.
+What if this person got a small reason
+their income was a bit higher than the record showed.
+We don't want small uncertainties in
+the data to cause classification errors.
+So instead, suppose we use this line.
+It's much further away from any of the points,
+so it's not so close to making mistakes.
+It would take a much bigger error in
+the data to cause misclassification.
+That's more like what we're looking for and
+we'll see how to formalize this in another lesson.
+But first, let's see another situation.
+What if it's just impossible to
+avoid making classification mistakes?
+Here's a slightly different graph
+of good and bad credit risks.
+As you can see, there's no line that can
+perfectly separate between the blue and red points.
+So we need what's called a soft classifier,
+one that gives us good as separation as possible
+rather than a hard classifier that separates perfectly.
+Here's a classifier that minimizes
+the number of incorrectly classified points.
+There are two blue points on
+the red side and one red point on the blue side.
+But it's close to making a lot of
+other mistakes like here and here.
+If we tilt and slide the line a little bit to here,
+we get a few more mistakes,
+but we have fewer total mistakes and near mistakes.
+And we can envision trading off these two things,
+actual mistakes and near mistakes
+depending on how important we think each one is.
+Speaking of how important something is,
+we've been talking about minimizing errors as
+if both mistakes are equally bad.
+But what if the cost of giving
+a loan that won't be repaid is
+much higher than the cost of
+mistakenly turning away a good applicant.
+Or instead of classifying loan applicants,
+what if we're classifying
+plants into edible and poisonous?
+The cost of mistakenly eating a poisonous plant is
+obviously much worse than
+mistakenly not eating an edible one.
+How might we change the definition of the best separator?
+Here's how we can do it.
+The more costly one type of bad decision
+is the more we want to move the line away from it.
+So let's say we've determined that the cost of making
+a bad loan is twice as high
+as the cost of turning away a good loan,
+then we can shift the line so it's
+closer to the blue points than it is to the red points.
+Now, if we have a new applicant whose status is
+ambiguous because it's between the blue and red points,
+even though it's closer to the blue points,
+our new cost-conscious classifier will
+still suggest that we deny this loan application.
+Or if we're deciding whether it's a plant we can eat,
+our classifier will tell us not to take the risk.
+In fact, you might be thinking that if it's
+a question of whether or not
+a plant we might eat as poisonous,
+even this new classifier
+might not be conservative enough.
+With our life at stake,
+even if the graph looks like we can
+perfectly classify data points,
+we might not want to be so risky.
+We might even be willing to misclassify some blue points
+purposely in order to push
+our classifier even further from any red points.
+When I'm out exploring the woods with my kids,
+we do this all the time.
+If a plant looks even remotely
+like poison, we don't touch it.
+And when it comes to mushrooms
+our classifiers all the way off the chart,
+even if it looks and smells
+just like a mushroom we buy in the store,
+we don't eat it in the wild.
+This thing is also important in medical analytics.
+For example, the cost of missing
+a case of HIV is very high.
+The person might go out and
+unknowingly infect other people.
+So tests are often set with a high classifier.
+Then if someone tests positive,
+they can take a second test to verify
+whether they really do or do not have HIV.
+So that's the idea of how we can consider
+the different costs of classification errors.
+We can use the same approach for
+soft classification too,
+given that it's impossible to separate with no mistakes,
+we might be more willing to
+accept one type of mistake than another.
+Finally, let's see one more type of
+insight we can get from this picture.
+Suppose we thought we needed
+two attributes to classify applicants,
+and the data looks like this.
+Notice how the classifier is
+almost parallel to the vertical axis.
+All that really seems to matter
+is the horizontal axis attribute.
+We've discovered that only one attribute
+is needed for classification, not two.
+So that finishes our discussion of
+the intuition behind classification.
+In a future lesson, we'll see
+what the mathematical model looks like.

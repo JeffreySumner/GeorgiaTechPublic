@@ -1,0 +1,125 @@
+>> Hi, I'm Joel Sokol,
+Director of the Master of Science and Analytics degree at
+Georgia Tech and a professor in
+Georgia Tech's Stewart School of ISYE.
+In previous lessons, we talked about
+how to measure the effectiveness of a model.
+We saw how a model's performance on
+its training data is usually too optimistic,
+so we have to use a second dataset called
+the test set to estimate the model's effectiveness.
+We also saw that if we're
+choosing between multiple models,
+we first need to use a validation set to compare them,
+but because the model that does best on
+the validation set is more likely
+to have benefited from random luck,
+we can't use the chosen model's performance
+on the validation set to estimate its quality.
+Instead, we need to use a third data set,
+the test set, to estimate
+the chosen model's performance.
+In this lesson, we'll see how to split up our data
+into these different sets:
+training, validation, and test.
+First, let's discuss how much data to use for each.
+There's not a hard and fast rule.
+Different people prefer to use different amounts of data.
+When we're working with just one model,
+so we only need a training set and a test set,
+reasonable recommendations range from
+using 70% of the data for training and
+30% for testing to using
+90% of the data for training and 10% for testing.
+In general, we want to use more data
+for training to make sure that our model has
+as much data as possible and can fit
+to as many as important data points as possible.
+But we also want to make sure that the test set has
+enough data that it also covers important data points.
+That's for two sets.
+If we need three data sets: training, validation,
+and test, then there are also different recommendations.
+Some prefer 50% for training and
+25% each for validation and test,
+others prefer 60% for training
+and 20% each for validation and test,
+and still others have suggested 70% for
+training and 15% each for validation and test.
+It's not clear whether any of these ratios
+is much better than any of these others,
+the important thing is that
+the training set again should be
+large and the validation and test sets
+should merely be large enough.
+So now that we know how much data to use for each task,
+how can we split the data up?
+There are two general approaches.
+The first approach is simple randomness.
+For example, if we have 1,000
+data points and we want to use
+60% for training and 20% each for validation and test,
+then we randomly choose 600 of the thousand data points,
+and that's the training set.
+And then we randomly choose another 200
+from the remaining data and that's the validation set,
+and the 200 data points that are
+left over will be the test set.
+The second approach is rotation.
+In the same example where we have 1,000
+data points to split into 60% training,
+20% validation, and 20% test,
+we can take turns.
+For example, we could use a five data point rotation.
+The first data point goes to training,
+the next to validation,
+the next to training,
+then test and then training.
+And then we repeat.
+The next data point goes to training and validation,
+training, test, and
+training over and over again we repeat.
+The advantage to rotation over randomness is
+that we can make sure each part of
+the data is equally separated.
+For example, if our data spans over 10 years,
+the random approach might mean that
+the validation set gets
+a higher fraction of data from years 1
+and 2 and less data from years 9 and
+10 while the test set might randomly have the opposite.
+If there were differences in conditions
+between the first two years and the last two,
+then that could cause inaccuracies in our measurements.
+But the disadvantage to
+rotation is that we better make sure we're
+not creating some other type of
+bias when we assign data points.
+For example, think back to our five data point rotation,
+where every first, third,
+and fifth data point of each group went to training,
+every second went to validation,
+and every fourth went to test.
+Suppose this was daily sales data
+for a retailer that's only open five days a week,
+then the training set would have all of the Monday,
+Wednesday, and Friday data,
+but no Tuesdays or Thursdays,
+and any patterns the model found in Friday data,
+for example, wouldn't be seen in the validation or
+test sets because they only
+have Tuesday and Thursday data.
+That could be an even more significant problem
+than having different fractions of data in each set.
+Of course, we could do something in-between.
+For example, randomly put
+60% of the Mondays into the training set,
+60% of the Tuesdays,
+60% of the Wednesdays,
+etc., and that would solve the problem.
+So now we've seen why we need to separate data
+into two or three sets and how to do it.
+We could stop there,
+but there's one more way we could use our data.
+It's called cross-validation and
+we'll see what it is in a future lesson.

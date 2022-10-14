@@ -1,0 +1,69 @@
+>> In previous lessons we saw methods like
+exponential smoothing and its generalization
+ARIMA for estimating or forecasting
+the value is something for
+which we have time series data.
+In this lesson, we will see
+the generalized autoregressive
+conditional heteroscedasticity
+or GARCH method.
+If you want a real challenge,
+try saying generalized
+autoregressive conditional heteroscedasticity
+five times in a row as fast as possible.
+We can organize the competition
+at the end of the semester.
+GARCH is a way to estimate or forecast
+the variance of something
+for which we have time series data.
+But first, before seeing GARCH itself,
+let's take a minute to see why we would want to
+consider estimating or forecasting variance.
+In general, knowing the variance of something can help
+us estimate the amount of
+error there might be in our estimate.
+For example, if we're forecasting the demand for
+pickup trucks to determine how many to manufacture,
+the variance can help tell us how much
+our forecast might be higher
+or lower than the true value,
+so we can plan accordingly.
+Variance estimation is
+especially important in investment.
+The traditional portfolio optimization model balances
+the expected return of a set of
+investments with its amount of volatility.
+Some people prefer riskier portfolio
+with a higher expected return,
+and others prefer less risky portfolio and are willing to
+accept lower expected return in exchange for less risk.
+In these models, the variance is
+often used as a proxy for the amount of
+volatility or risk and GARCH
+is a common approach for estimating variance.
+We're not going to get into
+much mathematical detail of the GARCH model,
+but here's what it looks like.
+You'll notice that it looks a lot like
+the ARIMA model that we saw in our previous lesson.
+There are only two differences.
+First, we're dealing with variances and squared
+errors rather than observations and linear error terms.
+And second, we deal only with the variances.
+We don't use differences of variances the
+way we use differences of observations in ARIMA.
+Other than that, the models have very similar structure,
+and just like good statistical software,
+can fit an ARIMA PDQ model for you,
+it can also fit a GARCH PQ model.
+The GARCH model doesn't need a d
+parameter again because it doesn't use differences.
+So we've now seen three methods for analyzing
+time-series data: exponential smoothing;
+ARIMA, which is
+a generalization of exponential smoothing;
+and GARCH, which is
+an ARIMA-like model for analyzing variance.
+There are other approaches of course,
+but these are the most common and the most
+generally useful when dealing with time series data.

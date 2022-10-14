@@ -1,0 +1,138 @@
+>> In our previous lesson we talked about clustering,
+splitting a set of data points into groups
+based on their similarity and closeness to each other.
+We saw a bunch of different situations
+where clustering can be
+an important analysis tool like targeted marketing,
+personalized medicine, location of
+fire stations, and image analysis.
+Today we will see a basic
+machine learning algorithm called
+the k-means algorithm for solving clustering problems.
+This algorithm actually dates back more than 60 years.
+To see how the k-means algorithm works,
+let's look at an example of clustering.
+Suppose we have data on SUV buyers for
+the past eight years and we want to
+figure out what groups of buyers there might be.
+Here's some data, as
+usual to make the algorithm more clear,
+I'll just use two-dimensional pictures
+with simplified data.
+But just keep in mind that this can
+be extended to lots of dimensions.
+Every data point in this graph is an SUV buyer.
+For each point the horizontal coordinate
+shows the person's age and
+the vertical coordinate shows
+the average daily temperature
+in the city that person lives in.
+In the general case,
+suppose we have n data points and m attributes.
+Let's use x to denote our data where
+x_ij is the value of data point i attribute j.
+Let's use y to denote cluster membership.
+y_ik is 1 if data point i is in cluster k and 0 if not.
+And let's use z_kj to denote
+the jth dimension coordinate of cluster center k.
+What we'd like to find is a set of
+k cluster centers and assignments of each data point to
+a cluster center to minimize
+the total distance from
+each data point to its cluster center.
+This piece adds up
+all of the distances from data points to cluster centers
+but only when the data point is in that cluster.
+And this piece requires that
+every data point has to be
+assigned to exactly one cluster.
+It turns out that this is
+a hard optimization problem to solve.
+We will see more about that in
+the optimization topic but for now just trust
+me that it could take a very long time
+to find the best clustering solution.
+So instead we use the k-means algorithm.
+Here's how the k-means algorithm works.
+First, we need to decide
+how many clusters we want the algorithm to give us.
+For this example,
+let's say it's three.
+We start by picking
+k points inside the range of our data.
+k is the number of clusters we want.
+If we want three clusters,
+we pick three points.
+The points we pick are called cluster centers.
+Now we temporarily assign
+each data point to the cluster center it's closest to.
+That gives us three clusters.
+But the points we've called cluster centers
+aren't really in the center of their clusters,
+so we need to recalculate them.
+For each cluster we find the centroid of
+the data points in the cluster
+and that's our new cluster center.
+Now that we've moved the cluster centers,
+data points might be in the wrong place.
+Here's a point that's in the red cluster but
+it's now closer to the green cluster center.
+So we go back a step and reassign
+each data point to its closest cluster center.
+Then we find the new cluster centers,
+reassign data points to clusters,
+find new cluster centers,
+reassign data points, etc.
+We keep repeating until we get to
+a step where no data point changes clusters.
+Once that happens, the
+cluster centers won't change either,
+so we found a solution.
+These are our final clusters, and that's it.
+It's a pretty straightforward algorithm.
+It's simple enough that you could all code it yourselves,
+but you usually won't need to.
+There's plenty of software out there that'll do it for
+you and you'll get a chance
+to use some in the homework assignment.
+As you can see in the picture,
+the clusters the k-means algorithm found are
+pretty much what we might've picked out by hand.
+Doing it by hand is easy in two-dimensions.
+But when you have a lot of attributes,
+that's a lot of dimensions and we need
+something like k-means to find a good clustering.
+Time for a jargon break.
+We've already talked about how
+this k-means algorithm is an example of machine learning.
+There's another bit of jargon that also
+applies to this algorithm, it's a heuristic.
+A heuristic is an algorithm that's not
+guaranteed to find the absolute best solution,
+but in many cases including this one it usually gets
+very close to the best solution
+and it gets there quickly.
+If we tried to find the solution
+that's the absolute best,
+it could take a long time.
+We'll talk about this more when we
+get to the optimization topic.
+The k-means algorithm is also an example
+of an expectation maximization algorithm.
+When we calculate the cluster centers,
+we're taking the mean of all the points in
+the cluster similar to finding an expectation.
+And when we reassign data points to cluster centers,
+that's the maximization step.
+Really we're minimizing finding
+the smallest distance to a cluster center.
+But we could think of it as maximizing the
+negative of the distance to a cluster center.
+So our algorithm takes turns
+between taking an expectation,
+maximizing, expectation, maximizing, over and over.
+So it's called an expectation-maximization
+or EM algorithm.
+So that's a basic introduction to the k-means algorithm.
+But there are some important details to
+consider and we'll talk about those in a future lesson.

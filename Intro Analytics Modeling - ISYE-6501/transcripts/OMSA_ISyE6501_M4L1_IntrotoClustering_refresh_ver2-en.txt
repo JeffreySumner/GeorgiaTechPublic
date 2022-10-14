@@ -1,0 +1,115 @@
+>> Hi, I'm Joel Sokol,
+Director of the Master of Science
+and Analytics degree at Georgia Tech
+and a professor in Georgia Tech's Stewart School of ISyE.
+In this lesson, we'll talk about clustering,
+what it is and what kind of
+questions it's useful for answering.
+Then in later lessons,
+we'll see a simple approach for finding good clusterings.
+In analytics, Clustering means taking
+a set of data points and dividing them
+up into groups so each group contains
+points that are close to each other or similar.
+Here's a graph of some points and a natural way to
+group them into three clusters so that for each cluster,
+the points in each cluster are close to each other.
+Let's see some examples of when
+clustering might be useful.
+Clustering is often useful
+in targeted marketing where we want to
+segment potential customers and
+give each group a different message.
+Different people react most
+positively to different types of marketing messages
+and we want each potential buyer to get
+the message that's most likely to convince them to buy.
+For example, if we're selling an SUV,
+we might market it to
+some people with its size highlighted,
+look how much stuff you can carry in here,
+to other people I'll highlight its price,
+other people might be primarily shown its versatility,
+and for other people, we might try to convince them
+that they'll look cool if they're driving an SUV.
+Each set of people would be a cluster and we tried to use
+the data to determine how to
+split up the consumers into sets,
+and then for each cluster,
+the marketing experts could determine
+which type of marketing material they should be shown.
+In fact, you might even discover from the clustering that
+the groups you initially expected to see aren't correct.
+For example, once you examine a cluster,
+you might realize that it's made up of people who might
+want to hear about an SUV's gas mileage.
+So clustering doesn't just help you
+segment into clusters you're expecting,
+it can also help you discover
+what clusters there are in your dataset.
+Let's see some more examples.
+Clustering might be useful in personalized medicine and
+an ideal cluster could be a set of people
+who might react similarly to treatment,
+but different clusters would have different reactions.
+Clustering can be used with physical distance.
+For example, when locating
+civic facilities like police stations, fire stations,
+medical clinics or libraries,
+we might cluster people by where they live
+and put one police station in each cluster.
+It's not just civic facilities
+where clustering can be useful,
+you can use similar approaches for locating gas stations,
+fast food restaurants, etc.
+I guess Starbucks might be an exception.
+Instead of bothering with clustering,
+they just decided to put a Starbucks on
+every street corner. Just kidding.
+Clustering is also used in image analysis, for example,
+for re-coloring pictures or
+recognizing faces and other objects.
+I'm sure you've all seen
+online forms that use things like CAPTCHA.
+You have to look at pictures of handwritten numbers or
+letters and type them in to prove that you are a human.
+Those pictures have had to get
+more and more ambiguous because
+other people's clustering algorithms are getting better
+and better at figuring out
+what number or letter is written.
+Another use of clustering is
+for initial data investigation.
+If we can find obvious clusters of data then we can
+analyze each cluster separately
+in case they have different properties.
+For example, predicting how much
+a customer is willing to spend on an SUV might
+require a different model depending on
+which attribute the customer cares most about,
+size, price, versatility, or perceived coolness.
+Let's go back now and see what
+clustering looks like graphically.
+Here's a simple graph of
+some data on potential SUV buyers,
+as usual in two-dimensions because it's
+easiest to see and easiest for me to draw.
+In this graph, the horizontal axis is age and
+the vertical axis is number of miles driven per year.
+Suppose we have all of
+these points and we want to divide them into clusters.
+We'll see how to divide them
+algorithmically in another lesson,
+for now, let's just do it by eye.
+If we want two clusters to
+send two types of targeted messages,
+Here's a reasonable way of splitting the data,
+and here's a three-cluster solution
+and a four-cluster solution,
+we can add even more clusters too if we want to.
+If you're wondering how to decide
+how many clusters to use,
+that's a good question, hang on to that question,
+we'll discuss it in another lesson.
+But first, we'll see you in the next lesson a basic
+machine learning algorithm to find good clusterings.

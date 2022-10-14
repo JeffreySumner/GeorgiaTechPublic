@@ -1,0 +1,62 @@
+>> In a previous lesson,
+we've talked about the support vector machine
+or SVM model for classification.
+One of the most common questions about
+the support vector machine model is what it's name means.
+In this lesson, that's what we'll talk about.
+Here's is the set of points.
+If we connect the dots around
+the outside of the points like this,
+it's called the convex hull of the points,
+but you don't need to know that.
+Then we get this shape.
+The shape looks like it's just floating here.
+And if there is gravity,
+it might just fall down,
+but we can use this line to hold it up.
+If the shape is correctly balanced on the line,
+then this point where they touch is supporting the shape.
+It's called the support vector.
+I suppose it could be called the support
+point but each point is a vector of data,
+so they're called support vectors.
+Support vectors don't even need
+the line to be below the shape.
+For the pure mathematical definition,
+a support vector could be supporting
+from the side or even from the top.
+Depending on the line we choose,
+we can even have more than one support vector.
+In the basic support vector machine model
+for classification,
+remember that we're looking for
+these two parallel lines
+that are as far apart as possible,
+while still having all the points of
+each color on one side of the lines.
+As you can see,
+those two points are support vectors.
+And because the model takes
+the dataset and automatically determines
+where those two lines should
+be and what the support vectors are,
+it's called the support vector machine model,
+and that's where the name comes from.
+Wait, before you go,
+here's one more observation about
+the support vector machine model.
+Remember that the classifier we're looking for is
+actually between the two parallel lines.
+And therefore it's in-between
+the support vectors not touching either of them.
+So the odd thing about naming this,
+the support vector machine approach
+is that the classifier it
+returns is actually not one of
+the lines touching a support vector.
+But that doesn't really make a difference.
+The next time you use
+the term suppor vector machine around your non-analytic,
+savvy friends, it'll still sound pretty
+impressive and even more so
+now that you can show them what it means.

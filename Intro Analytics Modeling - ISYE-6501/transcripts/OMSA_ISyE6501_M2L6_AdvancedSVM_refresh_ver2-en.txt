@@ -1,0 +1,150 @@
+>> Hi, I'm Joel Sokol,
+Director of the Master of Science in
+Analytics degree at Georgia Tech
+and a professor in Georgia Tech's Stewart School of ISYE.
+In this lesson, we will see some extensions of
+the basic support vector machine or
+SVM model for classification.
+How to account for some classification errors
+being more costly than others,
+how to prepare your data before running SVM,
+and whether we can use other types of classifiers.
+Remember from our previous lessons that we
+can graph our data points and use SVM
+to find a classifier with
+maximum separation or margin
+between the two sets of points,
+or if it's impossible to avoid classification errors,
+we can use SVM to find a classifier that
+trades off reducing errors and enlarging the margin.
+We also talked about how if
+mis-classifying one type of
+point is more costly than another.
+For example, giving a loan to
+someone who won't repay it is more
+costly than withholding a loan
+from someone who will repay.
+Even more so mistakenly thinking of
+eating a poisonous mushroom is
+safe is a lot more dangerous
+than avoiding a safe one you think is poisonous.
+In this type of situation,
+we can shift our classifier.
+Today, we'll begin by seeing a way to
+incorporate those differences into the SVM approach.
+First, let's look at hard separation,
+where we get a perfect classification of known data.
+The classifier we choose can
+depend on the value of the intercept.
+Generically it's A0,
+but it can range from A0 minus 1 to
+A0 plus 1 without making any mistakes on the known data.
+So we can adjust it as we want.
+For example, if giving a bad loan is
+twice as costly as withholding a good loan,
+then we might choose an intercept of two thirds times
+A0 minus 1 plus one third times A0 plus 1.
+In a soft classification context,
+we might just add an extra multiplier for
+each type of error with a larger penalty,
+the less we want to accept
+mis-classifying that type of point.
+Let's take a closer look now at the part of what we're
+minimizing that helps maximize the margin.
+We're looking to minimize the sum
+of the squares of the coefficients.
+But if our data has very different scales,
+we could run into a problem.
+For example, consider our two-dimensions
+of credit score and household income.
+Credit scores range from about 300 to about 850 with
+some newer ones going from 150 to 950.
+In any case, a range of less than a
+thousand between the top and bottom.
+Household incomes measured in
+dollars could have a range in the millions.
+That means the two coefficient values,
+A1 and A2 might be different
+by two or three orders of magnitude.
+So when we're looking at adding their squares,
+a small change in one could
+swamp a huge change in the other.
+But the fix isn't too hard.
+Before we run SVM,
+we can scale the data so that the orders
+of magnitude are approximately the same.
+Some software will do this automatically
+while other software requires you to do it yourself.
+And if you haven't yet seen
+the lesson on how to scale data, please check it out.
+You don't need to do it right now,
+but you should make sure to complete it
+before you do the homework for this topic.
+Once the data is scaled,
+we can also use the values of the coefficients A1 through
+AM to pick out attributes
+that aren't needed for classification.
+Let's revisit a picture from a previous lesson.
+In this picture, we observed that
+the classifier is almost parallel to the vertical axis,
+which implies that the value of
+the vertical attribute is
+almost irrelevant for classification.
+That's a nice observation if we
+can draw a two-dimensional graph.
+But what happens if our data contains a lot of attributes
+and we can't just draw
+a nice picture to see what's going on?
+In that case, we can check the values of
+the coefficients A1 through AM.
+If there's a coefficient
+whose value is very close to zero,
+it means that the corresponding attribute is
+probably not relevant for classification.
+For example, in this two-dimensional picture,
+if the vertical axis shows a loan applicant's income and
+the coefficient A for income is
+close to zero as it is in the picture,
+then we can eliminate income as an attribute and
+classify only using the attribute on the horizontal axis.
+Let's step back a little bit.
+So far in this topic,
+we've seen what classification is,
+what it looks like in two-dimensions,
+and what the SVM approach to
+classification looks like both in pictures and in math.
+At this point, you might be wondering
+a few things about SVM and classification.
+First, you might be wondering whether
+SVM works the same way in more than two-dimensions,
+since most datasets have more than two attributes.
+The answer is pretty much yes.
+I just don't have the skills to draw in 148 dimensions,
+but you can apply SVM to
+148 dimensional dataset in pretty much the same way.
+Second, you might be wondering whether a classifier
+has to be a straight line. The answer is no.
+In fact, SVM can be generalized using
+kernel methods that allow for non-linear classifiers.
+We won't get into the math in this class.
+But software like R has a kernel SVM function that you
+can use to solve for both linear
+and non-linear classifiers.
+Third, you might step back and wonder whether
+some classification questions might
+also be answered as probabilities.
+For example, instead of directly saying, yes,
+we should give this person a loan or no, we shouldn't.
+We could first determine something like,
+there's 37% chance that this loan applicant will
+default and make our lending decision
+based on that probability.
+For some applications,
+this approach could be more appropriate and
+the lesson on logistic regression models
+covers a method for estimating those probabilities.
+And finally, you might be wondering
+whether there are other approaches for classification,
+especially when there are more than two classes.
+The answer is yes, and we'll
+see that in an upcoming lesson.

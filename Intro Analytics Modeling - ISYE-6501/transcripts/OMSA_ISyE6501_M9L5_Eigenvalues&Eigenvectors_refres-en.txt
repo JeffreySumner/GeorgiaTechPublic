@@ -1,0 +1,49 @@
+>> In this lesson we'll see
+the very basics of eigenvalues and eigenvectors of
+a square matrix and then we'll finish up by
+seeing how it applies to principal component analysis.
+Suppose we have a square matrix A,
+then if we can find a vector v and a constant
+Lambda such that A times v equals Lambda times v,
+then v is called an eigenvector of
+A and Lambda is the corresponding eigenvalue.
+Essentially, it means that if
+we start with some vector v
+and we use a linear transformation A on it,
+we end up with a vector that goes
+in the exact same direction.
+It might be longer or shorter scaled by
+Lambda but its direction is the same.
+I won't go through a mathematical proof but it
+turns out that every value of Lambda for
+which the determinant of A minus
+Lambda times A identity matrix equals zero.
+Every one of those values of
+Lambda is an eigenvalue of A.
+And once we have an eigenvalue we can
+plug it into the equation A times v equals
+Lambda times v and
+solve for the corresponding eigenvector
+v. There's plenty of software that will
+find eigenvectors and eigenvalues for you so don't worry.
+What's more important is to know how they're important
+for principal component analysis or PCA.
+If you haven't yet viewed the lesson on PCA,
+go do that now and then come back to this lesson.
+So let's go on ahead. There's not much more.
+Remember from the PCA lesson
+that we start with a matrix of data X
+where X_ij is the jth factor value
+for data point i after scaling.
+The first step of PCA is to find
+all the eigenvectors of the matrix X transpose times X.
+Then we multiply X by
+each eigenvector to find
+each of the principal components.
+I'm not going to go through any of
+the mathematical theory behind what's
+going on but it basically
+uses the properties of eigenvectors and
+eigenvalues to get not just transformed set
+of coordinate directions but also for
+those directions to all be orthogonal to each other.

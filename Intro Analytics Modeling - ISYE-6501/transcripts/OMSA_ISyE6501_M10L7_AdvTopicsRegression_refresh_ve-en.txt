@@ -1,0 +1,131 @@
+>> In this lesson,
+I want to make you aware of
+some advanced methods related to regression.
+We're not going to cover any of them in any detail.
+There are things you can learn in our elective courses.
+Instead, I just want to give you
+a brief description of each one,
+so you have some idea of what they are.
+Some of these methods are parametric methods,
+like much of what we've seen before,
+we choose the form of the predictor
+like in basic linear regression,
+where the response is estimated as a
+0 plus the sum of aj times xIj.
+And other methods are non-parametric.
+We don't force any specific form onto the predictor.
+For example, in the k-nearest
+neighbor and spline regression models
+we will see in just a minute.
+The first method I want to show you in
+this lesson is Poisson regression.
+Poisson regression is used when we think
+the response follows a Poisson distribution.
+For example, when we're trying to count
+the number of arrivals at an airport security line.
+But instead of having a single parameter Lambda
+to estimate and
+poisson regression we assume that
+the parameter is a function of other attributes.
+For example, the base rate of arrivals to
+the airport security line could
+be a function of time of day,
+day of the week, whether it's a holiday, et cetera.
+And we could use poisson regression essentially
+to estimate that function Lambda of x.
+And then given Lambda of x,
+we can make predictions about the expected arrival rates.
+A second advanced regression method
+is called regression splines.
+A spline is a function made up
+of polynomials that connect to each other.
+In this graph, there are four pieces to the spline.
+Where the pieces connect,
+is called the knot and the polynomials
+connecting them have to be mostly smooth at the knots.
+The regression spline allows us to fit
+different functions to different parts
+of the dataset with
+smooth connections between
+the parts to ensure that we don't
+have drastically different answers
+for very nearby points.
+In order k regression spline
+means that the polynomials are all
+order k. There's one other term
+that might be helpful to know.
+A specific implementation of regression splines is
+called multi-adaptive regression splines or MARS.
+But since MARS is actually a trademark in many libraries,
+including one for Python,
+you can find it under the name Earth instead.
+Really. It's not always
+the best way to do regression splines,
+but it often works very well.
+The next advanced regression method I
+want you to be aware of is called Bayesian regression.
+In Bayesian regression, we don't just start with data.
+We also start with some estimate of how we think
+the regression coefficients and
+the random error is distributed.
+For example, suppose we are trying
+to predict how tall a child will
+eventually be as an adult
+based on the heights of the child's mother and father.
+An expert on height genetics
+might give us a starting distribution.
+For example, that the coefficients
+of mother's and father's height are each
+uniformly distributed between 0.8 and 1.2.
+We can then use Bayes theorem
+to give an updated estimate of
+the coefficients distributions based on the data we have.
+Bayesian regression is often most helpful
+when we don't have much data to start with.
+In the absence of a lot of data,
+we can essentially combine
+expert opinion with a small amount of data we
+do have and use the data to
+temper the expert opinions and vice versa.
+If we don't have an expert opinion,
+we could choose a broad prior distribution,
+say uniform over a very large interval and use it as
+seed data that can be adjusted
+significantly by the data we have.
+The last regression model I want you to
+see in this lesson might be the simplest.
+It's called k-nearest neighbor regression and it's very
+similar to the k-nearest neighbor method
+that's in the classification topic.
+In k-nearest neighbor regression,
+we don't try to guess what function of
+the attributes might be a good predictor of the response.
+Instead we just plot all the data we have and
+then when we get a new data point that
+we need to predict the response for,
+we find the k-closest data points to the new
+one and take the average of their responses.
+That's our predicted response for the new point.
+Just like in the k-nearest
+neighbor classification method,
+we could do fancier things
+like weighting each dimension of
+distance or removing dimensions
+that aren't very predictive but at its core,
+this is a very quick and easy method to implement.
+That's the end of this lesson.
+But it's not the end of
+all the advanced regression methods that people
+continue to come up with and refine.
+As you might imagine, because
+the purpose of these models is to answer
+some of the most common and most
+important questions and analytics,
+researchers are hard at work coming up
+with better and better versions all the time.
+So in addition to learning about
+the specifics of regression itself,
+I hope you've also learned in this topic
+the overarching ideas that these models are based on.
+So whenever a new hot model is developed,
+you'll have the ability to understand and use it.

@@ -1,0 +1,174 @@
+>> In this lesson, we'll see
+a basic mathematical model
+for solving classification problems.
+Hopefully, you remember from our previous lessons
+that classification and analytics has
+the same meaning as it does in everyday life,
+putting things into categories.
+We've seen a graphical example
+about a bank that's trying to decide whether or
+not to give loans to applicants based on
+the applicants credit scores and incomes.
+We can plot all the information on a graph
+where the horizontal axis shows the credit score,
+the vertical axis shows the household income and
+each previous applicant is
+either a blue data point if
+they repaid their entire loan,
+or a red data point if they defaulted.
+We can draw many lines that separate
+between the blue points above and the red points below.
+And we discussed how some might be better than
+others if they're further from making mistakes.
+And also how some might be
+better than others if they're more
+likely to avoid types of mistakes that are more costly.
+For example, giving a loan to someone who won't repay it.
+Now let's see what the math looks like.
+This model is called the support vector machine model.
+We're going to need to break out
+our analytics dictionary here just to make
+sure we're all on the same page when I
+start talking about data points,
+rows and columns of data,
+attributes and columns of data and other jargon.
+If you haven't yet viewed
+the basic data dictionary lesson,
+please do that now and then come back.
+Oh great, you're back already.
+Let's get started with support vector machines.
+Suppose we have a dataset with m data points,
+and for each point we have n attributes.
+Let's call X_ij,
+the jth attribute of data point i.
+For example, in our picture,
+X_i1 is the credit score of person i
+and X_i2 is the income of person i.
+We'll also call Y_i,
+the response for person i,
+either a value of one, if it's a blue point,
+if person i repaid the full loan and a value of
+negative 1 if it's a red point where
+the person did not repay the full loan.
+In our picture, a line is
+defined by a set of coefficients
+a_1 through a_n for each attribute and an intercept a_0.
+Our line would be a_1X_1 plus
+a_2x_2 up to a_nx_ n plus a_0 equals 0,
+or the sum of a_jx _ j plus a_0 equals 0.
+And parallel lines are just two lines with
+the same a_1 through a_n and different intercepts a_0.
+We can draw two parallel lines
+that separate the red and blue points
+such that a_0 is
+the intercept of the line right in the middle,
+and that line will be our classifier.
+We want to find values of a_0,
+a_1 up to a_n that classify the points correctly and
+have the maximum gap or
+margin between the parallel lines.
+Remember what it means to classify correctly.
+All blue points need to be on one side of the line
+and all red points need to be
+on the other side of the line.
+For all blue points i,
+we need a_1x_i1 plus a_2x_i2 plus a_0
+to be greater than or equal to 1.
+We use the one for scaling,
+but it could be any number.
+And for red points we need
+a_1x_i1 plus a_2x_i2 plus a_0
+less than or equal to negative 1.
+Since we defined y_i to be 1 for
+blue points and negative 1 for red points,
+we can combine these two expressions to get
+a_1x_i1 plus a_2x_i2 plus a_0,
+all times y_i greater than
+equal to 1 for all data points i.
+If you are wondering why we use y_i to be 1
+or negative 1 instead of 1 or 0, this is why.
+And if you remember from linear algebra,
+the distance between the two parallel lines
+a_1x_i1 plus a_2x_i2 plus a_0
+greater than or equal to 1,
+and a_1x_i1 plus a_2x_i2 plus a_0
+less than or equal to negative
+1 is 2 over
+the square root of the sum of the X_ij squared.
+So if we can minimize the sum from j equals 1 to
+n of all the a_ij squared we'll maximize the margin.
+So we can now write this hard separation problem
+as minimizing over a_0,
+a_1 up to a_n the sum from
+all j equals 1 to n of A_j squared,
+subject to the sum from j
+equals 1 to n of a_j x _ij plus a_0,
+all times y_i greater than or
+equal to 1 for all data points i.
+In other words, we need to find values of
+a_0 through a_n so that the margin,
+the distance between the lines is greatest.
+But we can only choose from among values of
+the coefficients a that
+correctly separate all the points.
+There's lots of good software
+that can solve this problem.
+In fact, you'll get to use some in a homework assignment.
+But what if it's not possible to perfectly
+separate the red points from the blue points?
+As we saw in a previous lesson,
+we need to account for errors
+in classification and trade-off
+minimizing the errors we make and maximizing the margin.
+For each data point i,
+we can calculate the error and its classification.
+If it's on the correct side of the line,
+then the sum of a_j x_ij plus a_0,
+all times y_i is greater than or equal to 1 or the sum
+of a_j x_ ij plus a_0
+times y_i minus 1 is greater than or equal to 0.
+If it's on the wrong side
+then the sum of a_j x_ij plus a_0,
+all times y_i minus 1 is less than 0.
+And the amount that it's less than
+zero is the amount of error.
+The further the wrongly
+classified point is from the line,
+the bigger mistake we've made.
+In general, the error for
+data point i will be whichever is larger,
+zero or the amount point
+i is on the wrong side of the line.
+So the total error that we want to
+minimize can be written as the sum
+over all data points i of the maximum of either 0
+or 1 minus the sum of a_j x_ij plus a_0 times y_i.
+And as we've seen,
+the margin we want to maximize is
+the sum of a _ij squared.
+To tradeoff between them,
+we can pick a value Lambda and
+minimize a combination of error minus margin.
+As Lambda gets large,
+this term gets large.
+So the importance of a larger margin outweighs
+avoiding mistakes in classifying known data points.
+And as Lambda drops towards 0,
+this term also drops towards 0.
+So the importance of minimizing mistakes in
+classifying known data points
+outweighs having a large margin.
+This approach to classification is called
+a support vector machine or SVM.
+Support vector machines are the thing that can
+make you sound really impressive at a party.
+What do you do? I build support vector machine models.
+Sounds a lot more impressive
+than I draw lines between points.
+If you want to know where the name comes from,
+go ahead and watch the where does
+the name support vector machine come from lesson.
+Otherwise, I'll see you
+soon in the lesson where we discuss
+some extensions of this basic
+support vector machine model.

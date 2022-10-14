@@ -1,0 +1,88 @@
+>> Hi, I'm Joel,
+Sokol Director of the Master of Science
+in Analytics degree at
+Georgia Tech and a professor in
+Georgia Tech Stewart School of ISYE.
+In this lesson, we will see why it's sometimes
+helpful to transform data before
+using it to fit a model and we'll cover
+one method for doing it, the Box-Cox transformation.
+Some of the models we see in
+this course make some normality
+assumptions about the response data
+we're trying to estimate.
+And if the response data isn't
+close to fitting the normal distribution,
+the model could give biased results. Here's an example.
+Suppose we want to build a model
+to estimate someone's height.
+Here's a histogram of the height of
+American women in their 40s.
+As you can see, it's a pretty good fit to
+the normal distribution so the variance
+is about the same across the whole distribution.
+But now, suppose we also
+want to build a model to estimate weight.
+Here's a histogram of the weight of
+those same American women in their 40s.
+Now you can see that for smaller weights there's
+less variance and for
+larger weights there's more variance,
+it's a wider area.
+That difference in variance is called heteroscedasticity,
+which just means unequal variances.
+And if we try to build a regression model for this data,
+we might end up with bias because
+the higher variance at the upper end can make
+those estimation errors larger and push
+the model to fit those points better than the others.
+The same issue can arise with time-series data.
+Here's a graph of a response over time.
+It could be a direct response like the closing value of
+a stock market at the end of each quarter or it could be
+a derived response like the observed prediction error of
+an exponential smoothing model this many days in advance.
+Either way, we can see that the variance on the left at
+earlier time periods is much lower than
+the variance on the right at a later time periods.
+So this is heteroscedastic data too.
+So what can we do about it?
+One approach we can try as a Box-Cox transformation.
+A Box-Cox transformation is
+a logarithmic transformation that stretches out
+the smaller range to enlarge its variability and
+shrinks the larger range to reduce its variability.
+The idea is to find the best value of Lambda so if y is
+the vector of responses and
+t of y is the transformed vector,
+then t of y equals y to the Lambda minus
+one divided by Lambda
+and it's close to normally distributed.
+Good statistical software can do this for you.
+The important thing is to remember to
+check whether you need to do it for example,
+by using a Q-Q plot,
+like you probably remember from basic statistics.
+And if your basic statistics course was
+one that didn't cover Q-Q plots,
+go ahead and watch the Q-Q plot lesson after this one.
+One last thing before we stop.
+A common question about the Box-Cox transformation is,
+what does it have to do with boxes?
+Visually, what box is being
+used and can it help us see what's going on?
+The answer is that there isn't a box.
+Unlike the box and the box and whisker plot,
+the box of Box-Cox is actually a name.
+Statistician George Box was
+one of the inventors of the technique,
+along with David Cox and
+the Box-Cox transform is named after them.
+If you have kids like I do,
+you might have read them a book called Fox In Socks.
+Whenever I read it to them now I always want to say
+Fox and socks and Box and Cox.
+And when they get older, I'm sure there'll
+be happy to have me tell them all
+about how it's sometimes very useful for
+transforming or response to eliminate heteroscedasticity.

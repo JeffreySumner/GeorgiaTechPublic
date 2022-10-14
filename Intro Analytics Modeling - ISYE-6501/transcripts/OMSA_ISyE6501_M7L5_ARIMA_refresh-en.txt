@@ -1,0 +1,154 @@
+>> In previous lessons,
+we saw a method called
+exponential smoothing for analyzing time series data,
+data where the same response
+is known for many time periods.
+In this lesson, we'll see
+the basics of a more general method of analyzing
+time series data called
+AutoRegressive Integrated Moving Average or ARIMA.
+We're just going to see what ARIMA does
+without going through the underlying theory.
+If you're interested in the theory,
+you can learn it in one of the elective courses for
+Georgia Tech's Master of Science and Analytics degree.
+ARIMA has three key parts.
+The first key part is differences.
+Think back to the exponential smoothing lesson.
+We had the basic equation
+which we then expanded by substitution.
+So here the equation shows that we're trying to estimate
+the baseline value S_t based
+on all of the previous observed data,
+x_t, x_t minus one,
+x_t minus two, etc.
+That works well if the data is stationary.
+If the mean, variance,
+and other measures are all
+expected to be constant over time.
+Often data isn't like that.
+For example, if there is trend or seasonality.
+But sometimes even if the data isn't stationary,
+differences in the data might be stationary.
+For example, if we look at the differences between
+two consecutive observations this
+might be a stationary process,
+or we might need to look at the second-order differences.
+The differences of the differences or
+the differences of the differences of
+the differences called the third-order differences.
+And this is the thing that quickly makes
+people's eyes glaze over, including mine.
+So I won't go any further except to say that if
+you take the differences of
+the differences of the differences,
+etc, for D times,
+then it's called the Dth-order differences.
+So that's the first key part of ARIMA.
+The second part is autoregression,
+predicting the current value based
+on previous time periods values.
+We'll see more about regression in a later topic.
+For now, just think of regression as predicting
+the value of something based on other factors.
+For example, we could try to predict how tall
+a two-year-old boy will be at
+adulthood based on his mother's height,
+his father's height, and his height at age two.
+The auto part of autoregression means
+that instead of using other factors to predict,
+we instead just use
+earlier values of the same thing we're trying to predict.
+Like the boy's height at age one-and-a-half,
+one and six months.
+Obviously, this only works with time series data.
+Otherwise there won't be previous values to use.
+When used for forecasting
+the exponential smoothing equation in
+its expanded form is a type of autoregression.
+We're trying to predict the value based
+on all of the previous values.
+This is an order infinity autoregressive model
+because it uses data
+all the way back as far as we have it.
+We could also just use a few previous data points.
+If we only go back p time periods,
+it's called an order-p autoregressive model.
+In ARIMA, we combine autoregression and differencing.
+Instead of using autoregression
+with the actual observed data,
+we use autoregression on the differences.
+We might, for example,
+use p time periods of
+previous observations to predict dth-order differences.
+Now there's just one more part of the ARIMA model in
+addition to using previous observations as predictors,
+we also use previous errors.
+This part ARIMA is called moving average.
+If we go back q time periods,
+it's called an order-q moving average.
+When we put all of these pieces together,
+here's what the ARIMA model looks like.
+When we choose the dth-order differences,
+pth-order regression and qth-order moving average,
+we get the ARIMA pdq model.
+And once we've selected p, d, and q,
+statistical software can find
+the best values of these constants.
+So the model fits the data best.
+As usual, there's an optimization model
+underlying this best fit approach.
+There are at least three main ways of
+evaluating the quality of a time series model
+to determine what that best fit
+is and we'll see those in a future lesson.
+The important thing to know right now is that given p,
+d and q, the software can
+optimize to find the best constants for the model.
+And they can do that pretty quickly,
+so you can try different values of p, d,
+and q and compare them using
+the same validation approaches
+we've seen in previous lessons.
+The ARIMA model we've seen in
+this lesson is pretty general.
+We can add seasonality to the model.
+We won't see that in this class,
+but it's a pretty straightforward extension that
+good statistical software can do for you.
+And it turns out that there are specific values of p, d,
+and q that make the ARIMA model
+equivalent to other things you might have heard of.
+Arima 0,0,0 is a simple model
+for white noise where there are no patterns.
+Arima 0,1,0 is a random walk.
+We won't cover them in this class,
+but some of you might have heard of them before.
+A simple AR or just autoregressive model is
+ARIMA p,0,0 where
+the only the autoregressive part is active.
+And a simple MA or moving
+average model is just ARIMA 0,0,
+q, where only the moving average part is active.
+ARIMA 0,1,1 is the basic exponential smoothing model
+that we've seen in previous lessons.
+There are others as well that I won't go into now.
+The point is that in addition to giving you
+a lot of flexibility with your choices of p, d,
+and q the ARIMA model is also
+powerful because it generalizes a lot of simpler models.
+And ARIMA can be used for
+short-term forecasting just like exponential smoothing.
+ARIMA models tend to work
+better than exponential smoothing when
+the data is more stable with
+fewer peaks, valleys, and outliers.
+As a rule of thumb,
+you probably need about 40 past data points
+for ARIMA to work well.
+ARIMA models, including exponential smoothing are meant
+to help estimate or forecast
+the actual value of something.
+But what if we wanted to estimate or
+forecast the variance of something?
+We'll see how and why to do that in a future lesson.

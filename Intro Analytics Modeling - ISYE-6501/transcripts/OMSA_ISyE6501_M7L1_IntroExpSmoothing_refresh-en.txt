@@ -1,0 +1,100 @@
+>> In this lesson, we will see a method called
+Exponential Smoothing for analyzing time-series data.
+Data where the same response is
+known for many time periods.
+As we've seen,
+some examples of time series data are
+the highest temperature reading at
+the Atlanta airport each day,
+the price of a stock every two seconds,
+daily sales of hamburgers at a restaurant,
+blood pressure readings over time and things like that.
+We might expect the time series data
+will show some variation.
+There might be trends over time,
+the price of the stock could generally be
+increasing as the company gains market share,
+or a hamburger sales might generally be decreasing as
+the restaurant expands its menu
+to give customers more choices.
+There might also be cyclical variations.
+Temperatures are higher in summer than in winter or
+a restaurant might have more sales
+on weekends than weekdays.
+We will see how to model these variations.
+But there's another source of variation we
+have to deal with first, randomness.
+Temperatures, stock prices, blood pressure,
+and hamburger sales vary simply due to random variation.
+On some days people are just more in
+the mood for hamburgers than on other days.
+And the graph of daily sales
+might show random fluctuations.
+Similarly, the graph of
+someone's blood pressure over
+time will also show fluctuations.
+Because of that randomness,
+it might be hard to determine what someone's
+expected baseline blood pressure really is.
+Should a doctor take action or is
+the patient's blood pressure really about the same?
+And that's where a method like
+exponential smoothing comes in handy.
+Let's call S_t,
+the expected baseline response for time period t. A
+person's expected blood pressure at
+our t of the day, for example.
+And let's call X_t, the observed response,
+the actual blood pressure measured at time
+t. Imagine where the doctor,
+and we want to try to figure out what
+the patient's blood pressure has really
+been like over time without all the random variation.
+And if the blood pressure
+reading today is different, what does that mean?
+Maybe the patient's blood pressure
+is different than usual.
+Does that indicate an increase in
+the baseline or was it just random outside events?
+For example, the patient took his blood pressure
+while watching an exciting sporting event.
+There are two ways we might answer this question.
+We might think that
+the observed blood pressure is
+a real indicator of the baseline.
+So S_t equals X_t.
+Or we might think that there's
+no change to the baseline and
+the higher observed blood pressure
+today is just due to random luck.
+So really S_t equals S_t minus 1.
+Today's baseline is the same as yesterday's baseline.
+The exponential smoothing method
+combines these two ideas.
+S_t equals Alpha times the observed reading X_t,
+plus 1 minus alpha times
+yesterday's baseline S_t minus 1,
+where alpha is just a number between 0 and 1.
+So if we think there's a lot of
+randomness in the system,
+then fluctuations are probably
+mostly due to randomness and
+we should make alpha closer to 0.
+Yesterday's baseline is probably a good indicator of
+today's baseline even if
+we observed something different today.
+And on the other hand,
+if there's not much randomness in the system,
+then we should make alpha closer to 1.
+If we observe a fluctuation today it probably
+means today's baseline is close to the observed data.
+There's just one more small detail.
+How do we start? As the initial condition we can
+choose S_1 equal to x_1 and then build up from there.
+This method doesn't yet deal with things like trends,
+whether blood pressure might be increasing
+or decreasing over time for example,
+or with cyclical variations.
+But in a future lesson,
+we'll see how to include trend and
+cyclical variation into exponential smoothing models.

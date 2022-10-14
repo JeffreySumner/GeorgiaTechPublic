@@ -1,0 +1,55 @@
+>> Hi, I'm Joel Sokol
+Director of the Master of Science in
+Analytics degree at Georgia Tech and a professor
+in Georgia Tech's Stewart School of SYE.
+In a previous topic,
+we saw classification models where we had a set
+of data points that we want to separate into groups.
+Now, we've learned about clustering models,
+where we have a set of data points
+that we want to separate into groups.
+What's the difference between these two models?
+The difference is what we know about the data points.
+In the classification model,
+we know each data points attributes,
+and we already know
+the right classification for the data points.
+We already know the response.
+If we're looking at loan application data,
+we already know whether each data point is classified
+as blue meaning that they repaid their loan in full,
+or red meaning that they did
+not repay their loan in full.
+That information helps us to decide how
+to classify new points or new applicants.
+The model uses both the attributes
+and the responsive each data point.
+On the other hand, in the clustering model,
+we don't know upfront the
+right grouping of our data points.
+We know their attributes,
+but we don't know what group any of these points are in.
+The model has to decide how to
+cluster based only on the attributes of the data.
+That's a key difference,
+key enough that as usual,
+there's some analytics jargon to describe it.
+When we've observed the right
+answer for each data point,
+and we're using that information in addition to
+attributes to figure out how
+to deal with new data points,
+like in classification that's called supervised learning.
+And when we haven't observed
+the response for each data point,
+and we're only using attribute information
+to figure out how to deal with those data points,
+like in clustering,
+that's called unsupervised learning.
+Situations that require supervised
+learning are probably more common in analytics,
+and we'll spend a fair amount of this course
+talking about different supervised learning models.
+But unsupervised learning, especially clustering,
+is very useful to and can be
+an important tool in the analytics toolbox.

@@ -1,0 +1,99 @@
+>> In our previous lesson,
+we saw how a tree-based analysis,
+such as a regression tree works.
+But we ran out of time before we can
+talk about how to specify a tree's,
+branches, or when we should stop branching.
+In this lesson, we will see
+the answers to those questions.
+First, let's look at how to branch.
+There are really two questions involved in branching.
+Which factor or factors should
+be part of the branching decision?
+And how should they be split?
+In theory, we could branch on any combination of factors.
+For example, if we're trying to predict
+how much computation time of
+processor will require to optimize the assignment,
+of course, is to classrooms on campus.
+Then we could create branches based
+on the combination of two factors.
+One branch where the number of courses times
+the number of available classrooms is at least
+a 1,000 and one branch where the number of courses
+times the number of available classrooms
+is less than a 1,000.
+In practice though, there isn't
+a good algorithm for
+determining good combinations to use.
+Instead common practices to
+branch on one factor at a time.
+There are a bunch of different approaches to branching,
+and we'll see just one of those ways to give you an idea
+of how tree methods work and what you need to consider.
+Here's how it works.
+We start with half of the data
+and build a regression model on it.
+Then whenever there's a leaf,
+we can branch from,
+we can calculate the variance of
+the response among all data points in the leaf.
+We test splitting on
+each factor to determine how much lower
+the total variance of the two branches
+would be compared to the lease variance,
+and choose the factor with the lowest total variance.
+If the decrease in variance is
+more than some threshold Delta,
+and there would be enough data points
+in each branch, we make the split.
+Otherwise, we assume there's not
+enough benefit to branching
+and the leaf remains as it is.
+When we're done branching,
+we can then go backwards using
+the other half of the data to prune the tree.
+For every pair of leaves created by the same branch,
+we use the other half of the data to see whether
+the estimation error is
+actually improved by the branching.
+If the branching does improve error, the branches stay.
+But if the branching actually makes
+the error get larger or not change,
+then we remove the branches.
+Once we've finished branching and pruning,
+we have our final tree.
+As I mentioned, there are
+plenty of other branching methods,
+both for regression trees and classification trees.
+But the main ideas are the same.
+Using a metric that's related to
+the model's quality, first,
+find the best factor to branch on at
+a leaf and the best value of the factor to branch at.
+Then make sure it really improves
+the model or else prune the branch back.
+When branching, we need to have
+some threshold for accepting a branch,
+if the branching doesn't improve the model enough,
+or if one or both of
+the branches would have too few data points in it,
+we should reject the branch.
+And the reason is that we don't
+want to overfit the model.
+In theory, we could just branch and branch
+until every leaf has just one data point in it,
+which would not only be ridiculous,
+it would also be a very poor predictor.
+Each leaf would be so specialized
+for its own data point or small number of
+data points that it wouldn't be good for
+predicting what happens with future data points.
+A common rule of thumb is that each leaf should have
+at least 5% of the data points in it.
+So that's how regression trees are grown and pruned.
+But that's not quite the end of
+regression tree methods for us.
+In an upcoming lesson,
+we'll see how to use
+not just one regression tree, but many of them.

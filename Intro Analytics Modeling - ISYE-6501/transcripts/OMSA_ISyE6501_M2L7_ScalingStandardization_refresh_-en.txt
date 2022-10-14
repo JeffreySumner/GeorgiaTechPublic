@@ -1,0 +1,128 @@
+>> In this lesson, we will see
+two common data preparation tasks,
+scaling and standardization, and
+some situations where it's
+important to use one or the other.
+Let's start off with a situation
+where scaling is important.
+Think back to the support vector machine
+or SVM model for classification.
+If you haven't seen that lesson yet,
+it's okay, you can still follow along.
+Here we're trying to classify loan applicants into
+good and bad credit risks using
+two predictive factors: household income,
+which is usually in the tens of thousands or more,
+and credit score, which is in the hundreds.
+The basic SVM idea was to find
+the pair of parallel lines that were farthest apart
+while keeping all red points on one side of
+the lines and all blue points
+on the other side of the lines.
+The classifier would then be
+right in the middle of those two lines.
+Given a set of data x_i j,
+where x_ i j is the jth vector value for data point i,
+the classifier would be defined as the line a_0 plus
+the sum over all factors j of a_j times x_j.
+The distance between the lines could be maximized by
+minimizing the sum over all factors j of a_j squared.
+It's hard to tell because there aren't any units
+shown on the graph but a reasonable set of
+coefficients might be something like
+5 times income and 700 times credit score.
+The sum of the squared coefficients is 5 squared
+plus 700 squared or 490,025.
+But what if we make a small change
+to the credit score coefficient?
+Suppose we tried the coefficients 5 times income
+plus 701 times credit score.
+That looks like a very small change
+in the credit score coefficient,
+less than 1% difference.
+And it's a very small change in the slope of the line,
+but the sum of squared coefficients is now 5
+squared plus 701 squared or 491,426,
+a change of 1,401 from before.
+How much would we need to change
+the income coefficient to get the same level of change?
+If we keep the credit score coefficient at 700,
+the income coefficient will have to go all the way up
+from 5 to about 37.8,
+a change of more than 600% and a huge change in the line.
+Because the data are at such different scales,
+the coefficients are also of different scales,
+which means that the sum of squared coefficients is much
+more sensitive to changes in
+one coefficient than the other.
+And that means our SVM model isn't going to work well,
+as we can see from the graph.
+We first need to adjust the data
+so the numbers are on the same scale.
+And I'm going to show you two of the ways we can do it.
+The first way to adjust the data
+is to scale it down to the same interval.
+For example, suppose we want all of
+our data to be between 0 and 1,
+that's the most common scaling to use.
+For each factor j,
+we set x_ min j and x_ max
+j to be the smallest and largest vector values.
+And then for each point i,
+its new scaled factor value x_ij scaled is just x _i
+j minus x_ min j divided by x max_ j minus x_min j.
+If we want to scale to some other range,
+say from a to b,
+then we just take our 0 and 1 scaled value
+multiplied by a minus b and add b.
+So that's how to scale linearly.
+But we might also want to scale to
+a normal distribution to measure how
+far from the mean each data point is.
+The most common way to do that is to scale to a mean of
+0 and a standard deviation of 1 to standard normal.
+That's also pretty straightforward.
+If we let Mu j be the mean of factor
+j's values and Sigma j be
+the standard deviation of factor j's values.
+Then for each data point i,
+x_ij standardized is just
+x_ij minus Mu j divided by Sigma j.
+So when would you want to use scaling and when would
+you want to use standardization? It depends.
+For some models, it's important that
+your data will be within a bounded range.
+Scaling can do that but standardization can't.
+Some examples where the bounded range is
+important are things like neural networks that often
+require inputs to be between 0 -1 and
+optimization models that might require
+data to be bounded to ensure feasibility.
+It also might be that the type of data
+itself has to be within a certain range.
+For example, batting averages in
+baseball or between 0 and 1.
+RGB color intensities are between 0-255.
+SAT scores are between 200-800, etc.
+On the other hand, some models
+seem to work better with standardization.
+Principal component analysis and
+clustering are two examples.
+And in many cases,
+it's not clear whether one is better than the other.
+Sometimes you just have to try
+both and see what works best.
+Either way, the important thing is that it's often
+necessary to scale or standardize the input data.
+That's true for most of
+the models we will see in this course.
+Models for classification, clustering,
+prediction, selection and others.
+Even though I don't bother to say
+first scale your data over and over again in this course.
+Please know that it's important and you
+should make sure to do it.
+I can't quite use the line about gravity.
+It's not just a good idea, it's the law,
+but even though it's not the law,
+it is a good idea to scale or standardize your data.

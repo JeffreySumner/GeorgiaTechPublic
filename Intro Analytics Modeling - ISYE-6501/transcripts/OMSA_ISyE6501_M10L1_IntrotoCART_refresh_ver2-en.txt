@@ -1,0 +1,152 @@
+>> Hi. I'm Joel Sokol.
+Director of the Master of Science
+in Analytics degree at Georgia Tech
+and a professor in Georgia Tech's Stewart School of ISyE.
+In previous lessons, we've seen how to build,
+fit, evaluate and use regression models.
+In this lesson, we will see how to use trees to divide
+the dataset and specify
+different models for each subset of the data.
+Although we're seeing it in the regression topic,
+tree-based methods can be used
+in a lot of different contexts.
+In fact, one standard name for this approach is CART,
+which stands for classification and regression trees.
+So you can see that it's
+also applicable to classification.
+Trees can also be used for decision-making.
+There it's called the decision tree.
+Here's how it works in regression.
+Normally we just fit
+a single regression model using all of our training data.
+For example, suppose we are trying to estimate
+the impact that an online retailer sending
+a marketing email has on the amount
+of money a recipient spends on their website.
+We might build a regression model
+with a bunch of factors,
+demographic factors like age,
+male or female, number of children
+in the household and annual income.
+Purchasing factors such as the average amount
+spent per month on the website and of course,
+a binary factor for whether or not
+each person received a marketing email.
+But what if some of those factors
+behave differently in different combinations?
+For example, maybe the coefficient for
+receiving a marketing email should really differ by age.
+It might be more effective with some
+age groups compared to others.
+We can split our model,
+for example, into two branches.
+Say one for age 25 and
+younger and one for age 26 and older.
+For each branch, we then create
+a separate regression model using
+only the data points that fit the branch.
+This allows the regression to choose
+different coefficients for the two sets of data points.
+In fact, it might even be that
+some factors are significant in one branch,
+but not in the other branch.
+And we don't need to stop here.
+We can do the same thing again.
+Maybe in the 26 and older branch,
+we should really split it into
+a 26-50 age group and a 51 in older age group.
+And perhaps in the middle age group,
+households with no children and households with
+at least one child might be
+different enough to split them up too.
+Now we have four branch endings referred to as leaves.
+For each of them we'll run a separate regression to
+find each leaf's individual set of coefficients.
+This will help us both descriptively.
+We can use each leaf's specific coefficients to
+explain people's behavior within just that leaf.
+And predictably, we can build more targeted predictions.
+For example, if someone is
+37 years old with two children,
+we would follow the correct branches, older than 26,
+between 26 and 50 and at least one child and we use
+this regression to predict the effect of
+a marketing email on this person's website purchases.
+The tree approach can also help
+us figure out what we need to do better.
+For example, we might have regressions with
+good R-squared values for the three green leaves,
+but a low R-squared value for the red leaf regression.
+If so, we've now learned that
+we might need to investigate further
+what other factors might be
+predictive for people aged 51 and
+older because the ones that
+are modeled don't seem to be doing a good job.
+So that's the tree approach to regression.
+Let me pause here and describe
+how it's actually done in practice,
+which is a little different from
+the theory I just described.
+If we had to build a new regression model
+at every node in the tree,
+that would be a lot of regressions,
+which would require a lot more computation.
+And when we see how to use
+multiple regression trees in another lesson,
+that means even more additional computations.
+In addition, as we got down the tree,
+there would be fewer and fewer data points at each node,
+so it would be harder to avoid overfitting.
+So rather than doing a full regression at
+each node with a constant
+in each variable's coefficient,
+the general practice is just to do
+the very simplest regression
+using only the constant term.
+It turns out that the best fit for this is to use
+the mean response over all data points at the node.
+That's also a lot faster and easier to compute.
+So that's what's done in practice.
+As I mentioned before,
+the regression tree approach can also be
+useful for other analytics models.
+For example, we could build the same tree of
+logistic regression models or classification models.
+In these cases, the simple model
+used at each node would be slightly different.
+For example, in a logistic regression tree,
+we could use the fraction of
+the node's data points for which the response is true.
+And in a classification tree,
+we could use the most common response
+among the node's data points.
+We can also build a decision tree.
+For example, each leaf could be
+a decision such as whether or not to send
+a marketing email and going down
+the tree branches shows us which decision to make.
+At this point, you might have some questions.
+How do we choose what branches to put in the tree?
+When do we stop branching?
+And why is this method called a regression tree?
+We will see the answers to the first
+two questions in another lesson.
+But before we get there,
+let me answer the third question.
+The term tree comes from Computer Science.
+If we rotate the picture 180 degrees,
+it looks a lot more like a tree.
+Here's the root or root node going down into the ground.
+Here are the branches and at the end of
+the branches or leaves or leaf nodes.
+For some reason, computer scientists
+started drawing their tree pictures like
+this and both the name tree
+and the upside-down orientation stuck.
+Luckily, we have people all
+over the world taking this course.
+So wherever you are in the world,
+just imagine the tree growing on
+the opposite side of the world from
+you and it'll look exactly right.

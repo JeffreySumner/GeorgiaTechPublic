@@ -1,0 +1,142 @@
+>> In previous lessons,
+we've seen a variety of different analytics and data
+science models and we have
+more yet to come in this course.
+But first, I want to point out
+a contrast between models specifically
+and how easy or not easy it
+is to know how they create their output.
+A trait called explainability or interpretability.
+As an example, let's start with linear regression.
+Here's a standard linear regression model
+where x and y are data and
+the coefficients a or chosen to
+minimize the model's prediction error on training data.
+Once we've determined the values of a_0,
+a_1, a_2 up to a_n,
+given a new data point with a set of
+values x_1 through x_n,
+we can use the model to
+predict the data points response y.
+Picture someone without much analytics background,
+ask you to explain or interpret
+how the model determines its prediction y,
+and how y is affected by
+different values of the predictors.
+Let's give it a try. But first,
+let's make this a little more specific.
+Suppose we're trying to predict the number of tickets
+sold to see certain movies in theaters
+this year based on things like the salary of
+the top four stars of the movie
+as a proxy for their star power,
+the number of movies with
+similar plots already released this year,
+whether or not the movie is rated R or more restrictive,
+and how many days are left in the year.
+Given the coefficient values we have here,
+it's not too hard to explain
+how the model reaches its prediction.
+There's a baseline of a million ticket sales,
+and as the star power increases,
+ticket sales also increase for every extra dollar or
+star power ticket sales will increase by 1/4.
+Or for every $4 of extra star salary,
+they'll sell an extra ticket.
+On the other hand, each earlier movie with
+a similar plot will decrease
+ticket sales by about a million,
+and if the movie is rated R or more restrictive,
+that will also decrease ticket sales by about a million.
+And as you might expect,
+the more days there are in the year,
+the more ticket sales will increase for the year,
+about 20,000 per day.
+It's pretty straightforward to
+explain these effects that the model uses.
+And as a result, it's also easier
+to try to interpret the effects.
+On the other hand, suppose we instead
+have this linear regression tree model.
+Now it's a lot harder to describe
+how different predictors affect the result.
+Instead of saying that
+every four extra dollars of
+star power yields an extra ticket sale,
+we have to say something like this.
+When five or fewer movies with
+similar plots have been released already this year,
+then every three extra dollars of
+star power yields an extra ticket sale.
+Otherwise, if more than five
+similar plot movies were released,
+then if it's an R rated movie every
+$2 a star power salary yields an extra ticket.
+Otherwise, if there are 97 days or more left in the year,
+every $6 of star salary yields an extra ticket.
+But if fewer than 97 days left in the year,
+then star salary has no effect on ticket sales.
+Technically, that is what our model says.
+But it's really hard for someone including us to
+understand why or what's
+really going on from that explanation.
+We can describe the detail of the tree,
+but it's not helpful for our understanding.
+What if instead of one regression tree,
+we have a random linear regression forest with
+500 trees. That's even worse.
+Imagine trying to explain exactly how
+each factor affects the eventual prediction.
+Of course, we can get
+some information from a random forest.
+For example, most random
+forest packages will let you know
+the relative amount of data points
+whose branches are defined by each variable.
+But that doesn't give us
+nearly as much specific information
+as we get from linear regression.
+And that's the difference between a model
+that's easily explainable or
+interpretable like linear regression
+and one that isn't like a random forest.
+Of course, there's often a trade-off.
+Explainability or interpretability are
+valuable attributes of many models.
+The more we know about how a model gets its results,
+the more we can understand about why.
+And when we're presenting our model
+to supervisors or executives,
+the better we can explain how and why it works,
+the more likely they are to accept
+our models and implement our ideas.
+In some industries, explainability is
+even a legal requirement in
+some areas of decision-making in the finance industry,
+for example, if a model isn't
+sufficiently explainable to regulators,
+it's not legal to use it.
+So explainability is a good thing.
+But on the other hand,
+models that are more explainable
+might give us good results.
+The random forest model for predicting
+movie ticket sales might be a lot less explainable,
+but it also might give a better prediction because it's
+sometimes able to identify
+and model more complex patterns.
+And depending on the value at stake,
+someone might be willing to sacrifice
+explainability for sufficiently improved performance.
+Or it might be the other way where
+the performance improvements are
+irrelevant because a model
+won't be adopted or legally can't be adopted unless it's
+sufficiently explainable to convince
+the decision-makers to use it.
+The right tradeoff often has less
+to do with analytics and data science,
+and more to do with the models intended
+use and who the decision makers are.
+So it's an important factor to keep in mind when you're
+choosing which model you want to suggest using.

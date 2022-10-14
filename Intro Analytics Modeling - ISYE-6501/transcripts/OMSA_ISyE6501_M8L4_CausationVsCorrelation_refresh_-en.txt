@@ -1,0 +1,159 @@
+>> In this lesson, we will talk
+about an important concept in
+interpreting the output of some analytics models.
+The difference between causation and correlation.
+Just like a lot of other analytics jargon,
+these two words mean about what they sound like.
+Causation means that something causes another thing,
+and correlation means that two things
+tend to happen or not happen together,
+but neither of them might cause the other.
+So what's the point? Why are
+these words important in analytics?
+Let's use regression as an example.
+Suppose we are studying
+people's recreational habits in the winter,
+and we have a regression model
+that tries to predict daily number
+of hours spent outdoors in
+the winter by people in each city.
+Let's call that y.
+From the city's average daily temperature in the winter,
+lets call that x_1.
+We might find a significant relationship between the
+two with regression coefficients a_0 and a_1.
+So the regression model would estimate y
+as a_0 plus a_1 times x_1.
+And the p-value for a_1 would show a strong significance.
+That means given a city's
+daily average winter temperature,
+we can estimate the number of hours
+its population spends outdoors in the winter.
+It certainly won't be a perfect estimate.
+We can probably think of several reasons
+it wouldn't be, but overall,
+we can predict time outdoors from temperature.
+There's a correlation.
+But does that mean the model shows that
+warmer winter temperature causes time outdoors?
+Maybe. The temperature doesn't
+force people to go outside, but in general,
+it's not hard to imagine saying that because
+the winter temperature is higher in
+San Diego than in Chicago,
+people in San Diego spend
+more time outdoors in the winter than people in Chicago.
+So that's not such a big discovery.
+But now let's do the same regression in reverse.
+Using the same dataset,
+let's use the number of hours outdoors in the winter as
+the predictor and use it to
+predict the city's average daily winter temperature.
+The regression model estimate x_1 as b_0 plus
+b_1 times y for some coefficients b_0 and b_1.
+And the p-value and
+the model's quality will be exactly the same.
+So does this model with
+the exact same quality metrics as the other one?
+Now show that people spending
+more time outdoors in the winter
+causes higher winter temperatures?
+Probably not. It just doesn't make sense.
+We can still use the model to make predictions.
+For example, if I tell you there's a city where
+people are outdoors more
+in the winter than another city,
+you can probably predict that
+the first city will have a
+higher average winter temperature.
+But even though we can use it for empirical predictions,
+it doesn't make sense to
+say that the model shows causation.
+Here's an even more extreme example.
+The first time I taught this course,
+my kids were 7,
+5, and 2 years old.
+And there were days I walked into
+the classroom really tired.
+And there are also days when
+my face was a lot scruffier than usual.
+If I had plotted a graph of
+my tiredness against my scruff,
+there would have been an obvious correlation.
+And a regression would do
+a pretty good job of predicting one from the other.
+But neither one caused the other.
+More scruff didn't cause more tiredness
+and more tiredness didn't cause more scruff,
+instead, both things were caused by a third factor.
+How many nights in a row,
+at least one of my 7,
+5 and 2 year old kids
+had woken up in the middle of the night.
+The more they had woken up in the middle of the night,
+the more tired I was and the more likely I was to
+decide to sleep for
+five extra minutes instead of shaving in the morning.
+So just because there's a correlation,
+just because our regression model
+can make good predictions,
+doesn't necessarily mean that
+the predictors cause the response.
+So how can we tell when there is a causation?
+It turns out that's a more
+complicated question than it might seem.
+There's actually been a fair amount of
+philosophical thought around this question,
+including somewhere the answer is that it's
+theoretically impossible to prove causation.
+Luckily, we don't need absolute proof,
+humans draw causal relations all the time
+using an eight rules of thumb and were often correct.
+After all, we did figure out that temperature
+could in some sense cause outdoor activity,
+but not the other way around.
+There are several different rules of
+thumb for trying to figure out whether
+a correlation shows that
+one thing is also causing another.
+And most of them boil down to something like this.
+The cause should come before the effect.
+The idea of causation should make sense.
+And most difficult to ensure,
+there should be no outside factors
+that could be causing the relationship.
+The reason it's so hard to ensure that there are
+no outside factors causing the correlation,
+is that it means we have to think about
+all the possible external factors.
+And we're only human.
+We can't do that with 100% certainty.
+We can try to create randomized experiments,
+to use controls in our experiments,
+etc., but we still might miss something.
+That's why so many studies of things,
+especially where human behavior
+is involved can be controversial.
+It's often not hard to find
+a possible external factor that might
+or might not be part of the cause.
+That doesn't mean we can't still use
+our models to suggest causation.
+Coming up with insightful causal relationships
+is an important part of analytics.
+But it does mean that we should be
+very careful and do our best
+to think through all the possibilities we can,
+before we claim that our models show causation.
+And if you're interested in seeing
+what meaningless correlations you can find,
+go to this website.
+You can see how per capita consumption of
+mozzarella cheese correlates with
+civil engineering doctorates awarded,
+how the number of letters in the winning word of
+the national spelling bee correlates with
+the number of people killed by venomous spiders,
+how the divorce rate in Maine tracks very
+closely with per capita consumption of margarine,
+and lots of other clearly very important correlations.

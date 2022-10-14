@@ -1,0 +1,54 @@
+>> In this short lesson,
+I'm going to try to head off
+a potential source of confusion.
+In analytics, people use
+the word model to mean three slightly different things.
+In the course introduction,
+we talked about how modeling means taking
+a real-life situation and expressing
+the key parts of that situation in terms of math.
+So we can analyze the math and then turn
+the mathematical analysis back into
+a real-life answer or solution or recommendation.
+The mathematical expression of
+the real-life situation is called a model.
+And confusingly, there are
+at least three different ways of
+using the word model and analytics.
+If I say that I'm going to use
+regression to predict the delivery date of
+packages accompanying ships out
+then regression is referred to as a model.
+If you don't know what regression is yet, don't worry,
+it's a type of analytics model that we'll
+see a fair amount of in this course.
+So by the time we're done,
+you'll know plenty about regression.
+Anyway, if I plan to use
+regression to predict the delivery dates,
+then regression is the model I'm using.
+And if I go one level of detail
+lower and say that I'm going to
+use regression to predict
+delivery dates based on a package's size, weight,
+and distance between where
+it's being shipped from and where it's
+being shipped to then all that detail,
+the use of regression and the use of size,
+weight, and distance is also called a model.
+And if I go even one more step and
+use regression to find that the time for a package to
+be delivered is approximately equal to
+37 plus 81 times the sum of
+its linear dimensions plus
+76 times its weight plus 4 times the delivery distance,
+then that specific equation is also called a model.
+So I apologize in advance if
+the word model is sometimes confusing.
+It can mean all of these different things and I'll use
+it often to mean each of those three in the same lesson.
+And just like anything else in the course,
+if you're not sure what I mean,
+please go to the discussion forums and ask.
+There are a great place to
+get all of your questions answered.

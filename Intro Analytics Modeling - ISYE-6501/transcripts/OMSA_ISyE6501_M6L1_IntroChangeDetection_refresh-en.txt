@@ -1,0 +1,122 @@
+>> Hi, I'm Joel Sokol,
+Director of the Master of Science in
+Analytics degree at Georgia Tech
+and a professor in Georgia Tech's Stewart School of ISyE.
+In this lesson, we'll talk about change detection.
+We'll see what it is and some examples of
+the kind of questions it's useful for answering.
+Then in later lessons,
+we'll see a basic approach for detecting changes.
+As you might expect, change detection
+is exactly what it sounds like,
+determining whether something has changed.
+Because we're talking about changes,
+it makes sense that we'll usually be using
+time-series data or at least data
+with some time attribute.
+Here are some examples of when
+change detection is important.
+First, we might want to look at
+the data to see if we need to do something.
+For example, in a manufacturing process,
+does a machine that's displaying
+some variation in performance need maintenance,
+or is it just random variation?
+A hot topic these days is whether
+the global temperature has changed.
+And a company might want to know whether
+sales of their products have changed.
+For example, are they decreasing due to new competition?
+A second type of question we can answer with
+change detection is whether
+an action we took had any impact.
+For example, did a policy change have the desired effect?
+If the national business tax rates got lowered,
+did businesses hire more people, for example?
+Or in the case of an individual business,
+when they offered a promotion like
+a discount on one of their products,
+was there an effect on sales?
+And sometimes we might just want to see if there are
+any differences over time to help
+us plan or analyze for the future.
+For example, have there been changes in voting patterns?
+Here are a couple of other examples in
+my own research where change detection was important.
+I did some work a couple of years ago for
+a major semiconductor manufacturer.
+In the semiconductor manufacturing process,
+there are several 100 steps,
+and as wafers go through the steps,
+they need to be transported from
+machine to machine to machine.
+Because the process is so sensitive to
+even small dirt or dust particles,
+they don't use people to move wafers between machines.
+Instead, the process takes
+place in a giant clean room where
+automated vehicles run on
+overhead tracks automatically picking up wafers,
+driving them along the overhead rails
+and dropping them off at the next machine.
+With so many wafers in the room
+simultaneously and so many steps in each one's process,
+they might need a couple of 100
+of these automated vehicles,
+and the problem was that they were running into traffic.
+A central controller was telling machines which way to
+go and the roots they chose looked great at the time,
+but by the time the transport vehicles
+got to a critical intersection,
+there could be a huge backup of traffic.
+Eventually, it could even deadlock the whole system.
+The change detection issue was
+a big part of what we had to deal with.
+How do you identify when traffic is starting to build
+up and will be a problem five-minutes in the future,
+even if it isn't a problem right now?
+Here's a second example from
+a student project I supervised several years ago,
+dealing with Railroad Safety.
+Occasionally, rail car's axles
+fail and lead to derailment.
+So along railroad tracks there are
+high-tech sensors to detect how hot an axle is.
+The axle temperature is then
+used as a predictor of failure.
+The railroads would like to stop
+the train when axle temperature rises,
+but before it actually fails,
+then do some preventive maintenance
+and return the rail car to service.
+That would prevent a big derailment that would be
+very costly in terms of money and even lives.
+But there's a lot of random fluctuation
+in the axle temperature between sensors.
+Here's a figure showing the ideal scenario.
+In this case, the first
+time we see a high temperature reading,
+it would be a reliable warning
+that a real problem exists,
+and the railroad could remove
+the car from service before the failure.
+But what we actually see from
+the sensors is something like this.
+As you can see here,
+every high reading might not
+be meaningful and the difficulty
+is that if we wait until we're
+really sure the temperature is too high,
+then it might be too late.
+In fact, our first approach was
+to use hypothesis testing,
+but if we waited until
+the hypothesis test met the standard threshold,
+it turns out we had to wait so
+long that the axle would be broken already.
+Instead, we needed an approach that
+more quickly identified potential problems,
+even though we had to accept some false positives.
+And in a future lesson,
+we'll see a basic method to do just that,
+to detect change more flexibly.

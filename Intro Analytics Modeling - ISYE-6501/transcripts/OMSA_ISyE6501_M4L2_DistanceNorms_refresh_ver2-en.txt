@@ -1,0 +1,130 @@
+>> In this short lesson, we will see the concept of
+a norm and how it relates to calculating distance.
+You're probably familiar with
+the traditional straight line
+or Euclidean distance measure.
+Given two points, X and Y with coordinates x1,
+x2 and y1, y2.
+The distance between them is the square root of
+x1 minus y1 squared plus x2 minus y2 squared.
+A second common distance metric is rectilinear distance.
+The absolute value of x1
+minus y1 plus the absolute value of x2 minus y2.
+This distance is sometimes used, for example,
+when driving in a city where
+streets are laid out as a grid,
+which is why it's sometimes
+also called the Manhattan distance.
+We can generalize both of these to be
+the absolute value of x1 minus y1 to
+the pth power plus the absolute value of x2
+minus y2 to the pth power
+and take the pth root of that sum.
+Where, p would be 2 for straight-line distance,
+and p would be 1 for a rectilinear distance.
+And if we happen to be in a space with more dimensions,
+let's say n dimensions,
+we can write this as the sum over all n dimensions of
+xi minus yi absolute value to
+the pth power and the pth root of all that sum.
+This formula is known as the p-norm distance.
+For example, the one norm distance,
+the two norm distance, etc.
+It's also called the Minkowski distance of
+order p. In theory,
+we could choose other values of p also,
+p equals three, p equals 10,
+p equals a 1,000 or anything else.
+Surprisingly, the third most
+common value of p that people
+use is actually the infinity norm distance.
+Anytime I talk about infinity
+with people who don't use math for a living,
+I can see their eyes start to glaze over.
+In this case it has a meaning that's
+actually pretty easy to understand.
+Here's the formula with infinity
+substituted for p. Now, technically,
+we should probably refer to it as the limit as p
+goes to infinity of this but let's ignore that.
+Then a quick warning for all of you
+who like formal mathematics,
+I'm going to be very informal with my infinities in
+this discussion because it's
+easier to get a good intuition that way.
+So let's write out the sum.
+Now if we have n different numbers
+all to the infinity power,
+the largest one will dominate the rest.
+For example, eight to the infinity
+swamps seven to the infinity and the sum of
+those two is so close to eight to
+the infinity that seven to the infinity is irrelevant.
+So this sum is just about equal to the largest
+among the differences in
+each dimension to the infinity power.
+Now let's simplify.
+We have the infinity yth root of
+the infinity power of the largest difference.
+The root and the power are the same,
+so they cancel and we're left
+with just the largest difference.
+And that's all the infinity norm is the
+largest of a set of numbers and absolute value.
+If you're thinking that the phrase
+infinity norm sounds like it
+should mean something a lot more
+complicated, join the club.
+The first time I heard it was in
+a casual conversation with a friend and I was
+really impressed with them until I sat down and
+worked out the math and realized
+he just meant the biggest.
+At this point, you might be wondering
+two things, first,
+what person has friends who say
+infinity norm in casual conversation?
+I know I have some friends who are pretty nerdy,
+but this guy would say,
+I'm pretty nerdy too so I guess it's
+a good match and a good thing we both work in analytics.
+Second, why would anyone ever
+use the infinity norm as a distance measure?
+Here's just one example.
+Think about a warehouse that has
+an automated storage and retrieval system.
+In each aisle, there's a machine that moves
+up and down the aisle to the right place,
+and also stretches up and
+down vertically to reach the right height.
+Suppose we tell it to pick this item right here,
+it might move along the aisle to
+the right place and then
+stop and stretch up to the right height.
+If so, then the total time it takes before it can pick
+the item is the along
+the aisle time plus the up and downtime,
+the exact definition of a one norm.
+Suppose the machine was designed in a smarter way.
+As it's moving down the aisle,
+it's simultaneously stretching up
+and down to the right height.
+How long does it take from when it starts
+moving until it's ready to pick the order,
+whichever takes longer, moving or stretching.
+If it gets to the right place along
+the aisle before it finishes stretching,
+then the stretch time is how long it takes to be ready.
+And if it stretches to the right height
+before it gets to the right place in the aisle,
+then the along the aisle time
+is how long it takes to be ready.
+Either way, it's the larger of
+the two times and that's
+exactly the infinity norm of the two.
+So now you're part of the club
+too and the next time you are waiting in
+the slowest checkout line at the supermarket or stuck in
+highway traffic when all the other lanes
+are moving and yours isn't,
+don't be afraid to complain about infinity norms.

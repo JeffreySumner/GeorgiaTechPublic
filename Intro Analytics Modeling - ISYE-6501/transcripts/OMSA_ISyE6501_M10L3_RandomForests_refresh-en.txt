@@ -1,0 +1,99 @@
+>> In the previous lesson,
+we saw how tree-based analysis,
+such as a regression tree works.
+In this lesson, we're going to see how to use more trees.
+And what's it called when a lot of
+trees grow close to each other?
+A forest. The method we're going to
+see in this lesson is called the random forest methods.
+We saw in our lesson on
+tree-based methods that we can split our dataset into
+leaves by branching on factors that
+help separate the data into sets that are similar.
+And then for each of those sets of data,
+for each leaf, we built a different model.
+In the random forest example,
+we introduce randomness to allow us to generate
+different trees that might have
+different strengths and weaknesses.
+The idea is that overall,
+the average of all these trees is better than
+a single tree with its specific strengths and weaknesses.
+So let's see how we introduce randomness.
+First, we give each tree
+a slightly different set of data.
+If we have n data points,
+we randomly pick n data points for each of our trees,
+but for each tree we might pick some of our points for
+that tree more than once
+and never pick other points for it.
+Second, whenever we're branching,
+we don't just pick the one of
+our n factors that looks best to branch on,
+instead, we randomly pick a smaller number of
+factors and choose the factor
+in that subset that looks best for branching.
+A common number of factors to use is one plus log
+n. And a third aspect of random forest,
+although this part isn't random,
+is that we don't need to prune the tree.
+Because we're randomly choosing factors at
+each step and each tree has slightly different data,
+if we do the same procedure over and over again,
+we'll end up with lots of different trees.
+This set of lots of different trees,
+all found by randomly choosing factors that are
+each branching step is called a random forest.
+We might have hundreds of trees in
+the forest all different from one another,
+each giving a different classification
+or prediction or explanatory model.
+So that's fine. We come up with lots of trees,
+each of which gives a different model.
+Usually there might be 500 or a
+thousand or even more different trees.
+But now we've got a lot of models.
+How do we know which one to use?
+The answer is we don't use a single one.
+Instead, if it's a regression tree,
+we use the average predicted
+response over all of the trees in our forest.
+And if it's a classification tree,
+we use the mode,
+the most common predicted
+response over all the trees in our forest.
+The random forest approach has a lot of benefit.
+It often tends to give better estimates overall because
+while each tree might be
+overfitting in one place or another,
+they don't necessarily overfit the same way.
+So the average over all trees tends to
+flatten out those overreactions to random effects.
+On the other hand, it's much harder to
+explain the output of a random forest model.
+Random forest software does calculate
+a relative importance of each variable based
+on how much branching on each variable helps
+the model over all trees in the forest.
+But that doesn't help explain how the variables interact
+or how a certain sequence of
+branches is helpful or meaningful,
+like we would find in a single tree
+because all the trees are different.
+So the best we can do is
+some aggregate measure rather
+than giving specific insights.
+And whereas a single tree can give us
+a specific regression or
+classification model for a set of data points,
+the random forest can't.
+Because random forests can be
+run without much preparation or thought,
+I've heard them referred to as a default model.
+If there's no strong reason to try something else,
+or if you want to try to find
+a good blackbox predictive model quickly,
+go ahead and try it.
+But if you're looking for a model that will help give
+detailed insight into what's going on,
+it might be harder to get that from a random forest.

@@ -1,0 +1,146 @@
+>> In a previous lesson we talked about validation,
+which is measuring the effectiveness of a model.
+We saw how a model's performance on
+its training data is usually too optimistic.
+The model is fit to both real and random patterns
+in the data so it becomes
+overly specialized to the specific randomness
+in the training set that doesn't exist in other data.
+In fact, we saw an extreme example
+using birthdays of analytics students of how
+random effects can make a model's performance look
+way too good if we only measure it on the training data.
+So in this lesson we will see the first of
+two ways we can better measure a model's performance.
+Basically, the way to measure
+a model's performance is to
+use two different sets of data.
+A larger set of data to fit the model and
+a smaller set of data to
+measure the model's effectiveness.
+For example, in our ongoing example of classifying
+loan applicants into those who
+fully repay their loans and those who don't,
+we could use this set of data points to create
+this classifier and then use this set of
+data points to measure the classifier's effectiveness.
+That way if the first set,
+the training set had
+unique random effects that
+the classifier was designed for,
+we wouldn't be counting those benefits when we measure
+effectiveness on the second set
+called the validation set.
+As you can see in this example,
+this line classifies 90% of
+the points correctly in the training set,
+but only 80% of
+the points correctly in the validation set.
+It's likely that 90% is too optimistic and
+the 80% performance on
+validation data is a more accurate measure
+of the model's effectiveness.
+But there's one more level we might have to consider.
+What if we're trying to compare
+more than one model to decide which to use?
+For example, suppose we have
+both the support vector machine model and
+the k-nearest neighbor model
+for classifying loan applicants.
+And to make it even more complicated,
+what if we had five different
+support vector machine models and
+five different k-nearest neighbor models
+and we want to pick the best of these 10.
+For each one we can measure its effectiveness on
+the validation set and choose to use
+the model with the best validation set performance.
+Here's the performance of
+each model on the validation set.
+Each number shows what the fraction of
+the validation data points it correctly classifies.
+So we would pick support vector machine model Number
+4 because it performs best on the validation set.
+But could we really expect
+that level of performance from the model we chose?
+Maybe not. Here's the problem.
+Even on the validation set
+every performance estimate will include some randomness.
+Sometimes the randomness will make
+the performance look worse than it really
+is and sometimes the randomness will
+make the performance look better than it really is.
+And when we're picking the best out
+of say these 10 models it's
+possible that part of what made model
+SVM Number 4 look best is randomness.
+The fact that its performance is highest
+means it's not only most likely to really be best,
+but it's also most likely to have gotten
+a good boost from above average random effects.
+Let's pause here for a second because that can
+be a difficult piece of intuition to follow.
+Let me give you an extreme example.
+Suppose all 10 models were equally good,
+none was better or worse than the other.
+In that case, the only differences in
+performance we see on
+the validation set are due to randomness.
+Maybe one model just happen to work a little better than
+the rest on this validation set
+and that's why we're picking it.
+That means the performance we measure on
+the validation set might not really be its true quality,
+its true quality is actually lower than what we see.
+And that means once we've used
+the validation set to select the model we want,
+we can't necessarily use its performance on
+the validation set as an estimate of the model's quality
+because that performance on the validation set has
+a higher than average chance of
+being slightly inflated by luck.
+So what do we do? We do the same thing all over again.
+Once we've selected the model we want to use,
+we measure its performance on a third set of data
+called the test set to estimate its true performance.
+If you all think this is a little confusing,
+don't worry most people feel that way at first.
+So here's a flowchart you can use to help.
+At the first step,
+we use a training set of data to build a model.
+But because the model has been trained to match
+not only real effects but also
+the training sets random effects,
+we can't use the model's performance on
+the training set to measure its true quality.
+If this is the only model we're looking at,
+we can now skip Step 2 and
+move right to the third step using a test set,
+a different set of data with different random patterns.
+We can use the model's performance on
+the test set as a measure of the model's quality.
+But if we created
+more than one model using the training set,
+then we first need to pick
+which of the models we want to use.
+To do that, we test each model's performance on
+a validation set of
+data and pick the model that does best.
+But because the model that does best on
+the validation set is more likely to
+have benefited from lucky randomness,
+we can't use our chosen model's performance
+on the validation set to measure its true quality.
+Instead we use a test set,
+a third set of data and use the model's
+test set performance as a measure of its true quality.
+So the training set for building models,
+the validation set for picking a model,
+and the test set for
+estimating the performance of the model we picked.
+There's one last thing to think about here.
+Since we don't have unlimited amounts of data,
+we have to split up our data into a training set,
+a validation set, and a test set.
+There's more than one way to do that and
+we'll discuss those ways in a future lesson.

@@ -1,0 +1,84 @@
+>> In previous lessons,
+we saw a method called
+Exponential Smoothing for analyzing time-series data.
+Data with the same response is
+known for many time periods.
+And we saw how exponential smoothing
+really does smooth out the random peaks and valleys
+in observed data to give
+a clearer picture of
+the baseline behavior of whatever we're tracking.
+It turns out that exponential smoothing can
+also be used to do simple forecasting.
+Not just to see what happened in the past,
+but also to predict what will happen next.
+Here's how it works.
+Here's the basic exponential smoothing equation.
+Our baseline estimate, S_t for
+this time period, t is Alpha times
+the observed value X_t plus 1 minus Alpha
+times the previous periods baseline estimate S_t minus 1.
+Now suppose we're in time period t,
+and we want to look one period ahead to time t plus 1,
+and estimate what would happen then.
+Here's what that equation looks like.
+We don't know the observed value X_t plus 1,
+and our best guess is just to use
+the previous periods baseline estimate S_t.
+When we make that substitution,
+we get our forecast.
+The forecast F_t plus 1 equals S_t.
+In other words, our guess for
+the next time period is the
+same as our latest baseline estimate.
+And continuing out, the same thing happens for
+the next time period and all other future time periods.
+The estimate remains the same,
+so the forecast remains the same.
+Of course, because there's more uncertainty,
+the further into the future we go,
+the anticipated forecast error gets larger too.
+If we include the trend term,
+it's not much more complicated.
+Our best estimate of the next baseline
+is the most current baseline estimate,
+and our best estimate of the trend
+is also the most current trend estimate.
+So our forecast, F_t plus 1 equals S_t plus T_t,
+the current period's baseline estimate,
+plus the current estimate of how the baseline
+is changing from one time period to the next.
+And that's also the same going forward.
+And finally, suppose we also
+include a multiplicative seasonality.
+We've already seen the best forecast
+of the baseline and trend,
+and our best estimate of
+the next time period seasonal factors,
+C_t plus 1,
+is the latest estimate we have
+at that same stage of the cycle.
+Or C_t plus 1 minus
+L. So our forecast for time period t plus 1,
+F_t plus 1,
+is S_t plus T_t times C_t plus 1 minus L. And again,
+this remains the same going forward.
+If we're going to use this method for forecasting,
+you might be wondering how we can train
+the model to find the best values of Alpha,
+Beta, and Gamma to use.
+It turns out that we can use optimization,
+which itself is a whole other topic in this course.
+We can measure the squared error in
+every forecast F_t that we have,
+as F_t minus X_t squared,
+and minimize it over the whole training set.
+Whatever values of Alpha, Beta,
+and Gamma minimize that sum of squared error,
+is the model's best-fit, subject, of course,
+to all three values being between zero and one.
+So that's the exponential smoothing method,
+both for smoothing data and for doing simple forecasting.
+Coming soon in another lesson,
+will be a couple of other methods
+for analyzing time-series data.

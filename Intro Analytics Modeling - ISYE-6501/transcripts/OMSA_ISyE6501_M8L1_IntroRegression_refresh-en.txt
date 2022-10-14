@@ -1,0 +1,131 @@
+>> Hi, I'm Joel,
+Sokol Director of the Master
+of Science in Analytics degree at
+Georgia Tech and a professor in
+Georgia Tech's Stewart School of ISyE.
+In this lesson, we will start learning about one of
+the most common models in analytics; regression.
+There are lots of variations of regression and
+lots of add-ins and tangential topics,
+and we'll cover many of them in future lessons.
+But for now, let's just see what
+questions regression can answer and what it looks like.
+Regression can answer two different types of questions.
+First, regression can answer
+questions about how systems work.
+For example, regression can be used to determine
+how many runs the average home run is worth in baseball,
+estimate the effect of
+economic factors on presidential election voting,
+find the importance of
+a person's education on their future income,
+discover the key factors in purchasing
+a specific type of car, etc.
+And second, regression can make
+predictions about what will happen in the future.
+For example, regression can be used to predict how
+tall a child will be when he
+or she grows up to be an adult,
+forecast the price of oil
+a year-and-a-half in the future,
+predict the demand of housing in
+a city over the next six months,
+predict the remaining lifetime of someone
+applying for life insurance, etc.
+For each of these situations or
+any situation where regression is used,
+we have a set of factors or predictors that
+we can use to estimate or predict a response.
+Let's see the most simple version of regression;
+linear regression with one predictor,
+also called simple linear regression.
+Suppose we want to see the effect of
+unemployment on new car sales.
+Here's a graph of some sample data.
+The horizontal axis shows the predictor,
+the workforce participation rate,
+which measures the fraction of adults who are employed.
+The vertical axis shows sales of new cars.
+As we might expect,
+there seems to be a relationship between the two.
+When more people are working,
+there are more people who can afford to buy a new car,
+so new car sales are generally higher.
+But how much higher?
+That's where regression comes in.
+Here we're going to use linear regression.
+That means we're looking for
+a linear relationship between
+the predictors and the response.
+In this case between
+workforce participation and new car sales.
+Here's a line that goes through the set of points.
+If we denote y is the response, new car sales,
+and x_1 is the predictor workforce participation,
+then the equation of a line is y
+equals a 0 plus a_1 times x_1.
+As usual, this picture is only drawn in two-dimensions;
+x_1 and the response.
+If we had more predictors,
+say m of them,
+then the equation of the line would be y equals a_0 plus
+the sum from j equals 1 to m of a_j times x_j.
+So is this a good line or not a good line?
+We can measure the quality of the lines
+fit by the sum of squared errors.
+For each data point,
+the error can be defined to be the distance between
+the true number of cars sold and the model's estimate.
+If we denote the true number of cars sold
+for data point i by y_i,
+and the regressions estimated number of
+cars sold by y hat i,
+then the difference is just y_i minus y hat i
+or y_i minus the quantity a_0 plus a_1 times x_i1.
+And the sum of all the squared errors
+is just this term here.
+If you haven't seen the lesson on
+estimating model quality which
+covers what it means to find
+a model that best fits the data,
+now might be a good time to view it.
+Among other things, it'll explain why we're using
+the sum of squared errors to
+measure the quality of the lines fit.
+Go ahead and pause me.
+The great thing about online learning is
+that I won't even get hungry, thirsty,
+or tired, waiting for you. Great. You're back.
+As I was saying, we can measure the quality of
+the lines fit by the sum of squared errors.
+As the line turns and slides,
+the values of the coefficients a_0 and a_1 change.
+The values of a_0 and a_1 that minimize
+the sum of squared errors
+is the best fit regression line.
+I won't go through the details,
+but here's a quick description of the underlying math.
+The sum of squared errors is
+a convex function and we're trying to minimize it.
+So we can take partial derivatives of the sum
+of squared errors term with respect to each constant,
+set each partial derivative to 0,
+and solve those equations simultaneously to
+find the minimum sum of
+squared errors, the best-fit solution.
+As you've probably noticed,
+I think seeing the pictures of
+how analytics methods work can really
+help people understand what's going
+on when the models get more complex.
+Most of you have probably heard
+the expression of picture's worth a thousand words.
+When I was putting this lesson together,
+I started wondering whether
+that expression is actually true.
+In the next lesson, we'll see how to use
+regression to test hypotheses like this.
+Is a picture really worth a thousand words?
+Or is it maybe only worth say, 916?
+We'll see how to answer that question and many others,
+more important ones in the next lesson.

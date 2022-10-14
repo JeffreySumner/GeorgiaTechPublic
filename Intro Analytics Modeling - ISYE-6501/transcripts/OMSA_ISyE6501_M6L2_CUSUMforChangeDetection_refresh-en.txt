@@ -1,0 +1,148 @@
+>> In a previous lesson,
+we saw some examples of
+when detecting changes could be valuable.
+Measuring manufacturing performance,
+evaluating the effect of promotions on sales,
+determining whether national policy changes
+had the desired effect, etc.
+We also saw a specific example
+detecting rail car axles that are going to fail soon,
+where we needed a flexible approach
+that can give us an answer quickly.
+Quickly enough that it can detect
+the temperature change before the axle breaks.
+In this lesson, we will see
+the CUSUM approach to change detection.
+The name CUSUM is short for
+a cumulative sum and it answers the question,
+has the mean of the observed distribution
+gone beyond a critical level?
+CUSUM can detect when
+a process gets to a higher level than before,
+or to a lower level than before, or both.
+In this lesson, we'll look first at detecting
+increases and then show how to use
+the same method to detect decreases.
+Suppose we have some data X_t,
+where X_t is the observed value at time t. For example,
+X_t might be the price of a stock on day t,
+the measured temperature of
+a rail car axle at time t, etc.
+Let's call a Mu, the expected value of
+the observations x if there is no change.
+So for each observation,
+X_t minus Mu is how much above expected
+the observation is at time
+t. Now let's see the CUSUM metric.
+I'll put it up here first and then talk
+through what each piece means and how it works.
+The basic idea is to calculate
+a metric S_t and declare that we've observed
+a change when and if that metric goes above
+a threshold T. At each time period,
+we observe X_t and see
+how far above the expectation it is.
+Then we add that amount to the previous period's metric,
+S_t minus 1 to give a running total S_t.
+If that running total so far
+is greater than zero, we keep it.
+But if it's less than zero,
+we just reset the running total to zero.
+This helps CUSUM detect changes quickly.
+Otherwise, a run of
+lower-than-expected observations might delay
+our discovery of an increase.
+Basically, we're saying that if
+the running total would be below zero,
+it's irrelevant to the question of
+whether we later see an increase.
+But on the other hand,
+we don't want it to be too sensitive
+and say there's a change when there really isn't.
+We expect there to be some randomness.
+Sometimes in fact, maybe about half the time,
+X_t will be higher than the expectation just at random.
+So we include a value C
+to pull the running total down a little bit.
+The bigger C is the harder it is for
+S_t to get large
+and the less sensitive the method will be.
+And the smaller C gets,
+the more sensitive the method is
+because S_t can get larger, faster.
+And that's really about it.
+CUSUM is a pretty mathematically simple method that
+you can implement quickly even in a spreadsheet.
+So you're probably wondering,
+how do you choose the right values of C and
+T so the model finds changes quickly,
+but isn't so sensitive that it
+often says they are changed when there really isn't.
+The answer is that there really isn't a simple answer.
+C and T are model parameters that you
+have to use data to find the right values for.
+And part of that decision depends on how
+costly it is if the model takes a long time
+to notice the change and how costly it is if
+the model thinks it has found
+the change that isn't really there.
+For example, in a computer chip manufacturing process,
+if a machine starts putting
+a component a little too far to the left,
+then each chip produced
+between when the change starts and when it is
+detected will have to be discarded and
+there's a cost to that wasted material and time.
+On the other hand, if CUSUM thinks
+there's a change when the machine is really okay,
+then valuable production time
+might be lost while the repair crew
+goes in and adjusts
+the machine that was working fine anyway.
+Part of setting the right values of C and T involves
+trading off those costs of the two types of mistakes.
+So let's see an example of how
+CUSUM works with different values of C and
+T. Here's a set of
+observations from a reaction time study.
+The question is whether someone's reaction time
+slows down after a while.
+And to test the CUSUM method,
+we artificially added 100
+to every observation from number t equals
+11 onward and check to see how long
+it takes CUSUM to notice that there is a change.
+Here are the calculations using
+a threshold T of 450 and C equal to 0.
+You can see that it takes
+several time periods to notice the change,
+but it's still not too bad.
+And here are the same calculations using a threshold of
+T equals 150 and C equal to zero.
+As you can see, it detects the change much faster but it
+was also very close to
+falsely detecting a change early on.
+So that's an example of how CUSUM can
+detect the change in the increasing direction.
+It's just as easy to detect decreases.
+Just use the same formula,
+but look for negatives and decreases.
+And if you want to look for both changes simultaneously,
+just do both at once.
+In fact, there's also a nice way to visualize this.
+This is sometimes called a control chart.
+We plot S_t over time and
+if it ever gets beyond this threshold line,
+it shows that CUSUM has detected a change.
+So that's CUSUM.
+Of course, there are other methods
+for detecting changes too,
+but we don't have time to go
+through all of them in this course.
+The important thing that I hope you take away from
+this lesson is understanding the basic idea
+of how changes can be detected and
+the trade-off between early detection
+and false detection,
+as well as the straightforward CUSUM method
+for observing changes over time.

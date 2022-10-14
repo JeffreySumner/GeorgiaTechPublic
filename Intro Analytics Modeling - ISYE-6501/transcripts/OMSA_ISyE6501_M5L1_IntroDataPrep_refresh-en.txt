@@ -1,0 +1,49 @@
+>> Hi, I'm Joel Sokol,
+Director of the Master of Science in Analytics degree at
+Georgia Tech and a professor in
+Georgia Tech's Stewart School of ISYE.
+We often talk in this course and in real life about using
+specific data in our analysis
+as predictors in a regression model,
+factors in a classification model, etc.
+For example, if we focus on numeric quantitative data,
+we could use factors like a person's credit score,
+the average daily temperature in Atlanta,
+the number of hotdogs sold at each baseball game,
+the value of a stock at five second intervals,
+the amount of a certain chemical in
+drinking water and lots of others.
+Usually it sounds like we're
+using those factors directly.
+The factor value XIJ is
+the exact number of hotdogs
+sold or the exact value of the stock.
+But sometimes the way we talk glosses
+over the need to manipulate the data first.
+As we'll see, sometimes
+the scale of the data is important.
+Using data like average household income,
+which is often at a scale of 10^5 or higher,
+along with credit score on a scale of 10^2,
+can lead our algorithms down the wrong path.
+There might be one or two data points
+whose effect on the overall solution is
+magnified out of proportion
+because of how different they are from the rest.
+And we'll see how to identify and deal with them.
+Sometimes, we might suspect that
+our data has a lot of extraneous information
+in it that could complicate our model and
+our ability to correctly interpret the solution.
+In this topic, we will see how to avoid that issue too.
+All of these potential problems
+with data are things that we can address
+before building and solving
+the analytics models that are covered in this course.
+When we talk about the data
+used as inputs for those models,
+we are generally assuming that we've already
+done whatever data preparation steps are required.
+And in the rest of this topic,
+you'll learn exactly that,
+how to prepare a set of data for use in analytics models.

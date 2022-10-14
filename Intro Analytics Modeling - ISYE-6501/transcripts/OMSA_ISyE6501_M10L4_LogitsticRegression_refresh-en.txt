@@ -1,0 +1,162 @@
+>> Hi, I'm Joel Sokol,
+Director of the Master of Science in
+Analytics degree at Georgia Tech
+and a professor in Georgia Tech's Stewart School of ISYE.
+In previous lessons, we've seen
+various regression models and
+how to choose a good set of variables and
+interpret them in a regression model.
+Soon we'll also see how to use trees to refine models.
+In all of these lessons and examples,
+we're implicitly assuming that the response,
+what we were trying to explain or
+predict has a wide range.
+For example, we might be trying to
+predict a child's height at adulthood,
+or the number of sales of a popular product each week,
+or the number of people who will see
+a particular tweet and its retweets,
+or estimate the value of
+a home run in baseball or the impact
+of a kidney transplant on
+a potential recipient's longevity.
+But what if we're trying to estimate a probability?
+For example, what's the probability that
+a loan recipient will repay the entire loan on time?
+Or from my own research,
+the probability that one college
+basketball team will beat another,
+or the probability that a particular liver donor has
+an infectious form of encephalitis
+that could spread to a transplant recipient?
+Then a linear regression model
+probably isn't the right choice.
+It can generate responses outside
+the range of probabilities between 0 and 1,
+even though the data we observe will generally have
+responses that are either 0 or 1.
+For example, past loan recipients have
+either paid back their loan on time or haven't.
+College basketball teams is either won or lost.
+And transplant recipients have
+either been infected or haven't.
+In all of those cases we can designate one of
+the two responses as 1 and the other as 0.
+For example, a transplant recipient
+who is infected would have a response
+of 1 and a recipient who
+wasn't infected would have a response of 0.
+For this question,
+we can use a different type of
+regression model called the logistic regression model.
+Here's the standard linear regression model.
+The logistic regression model just takes
+that linear function and puts it into an exponential.
+Now that functions range can take
+any value from negative infinity to positive infinity.
+If it's negative infinity,
+then the response will be
+zero and if it's positive infinity,
+then the response will be 1.
+You don't need to remember that just plug
+negative and positive infinity into the formula.
+Here's what the logistic regression curve
+looks like in general.
+The values of the coefficients can change how steep
+the middle part of the curve
+is and where the steep part is.
+Notice in these pictures that
+all of the data points are at
+the top or bottom of the graph at the value 0 or 1.
+That can make visualization a little more complicated.
+Suppose for example, we have several data points with
+the same predictor value and the same response.
+All those points would show up right on top of each
+other and we need to
+enhance our visualization to show it.
+Perhaps for example, the size of
+each dot would show how many observations there are.
+If we have a data set where there are both 0 and
+1 responses for almost every predictor value,
+then we can also plot the data this way,
+where each bar shows the fraction of
+responses that are one for each predictor value.
+We still need to consider
+how many observations there are for each predictor value.
+But now we can see more clearly how
+the logistic regression curve
+fits nicely through the data.
+Most of the things we can do with linear regression,
+we can do with logistic regression in a similar way.
+We can use transformations of
+input data and consider interaction terms.
+We can use variable selection methods
+for logistic regression.
+And we can build
+logistic regression trees and
+random logistic regression forests,
+as we'll see in upcoming lessons.
+Logistic regressions can take longer to
+calculate because they don't have a closed form solution,
+but they're still pretty fast to compute.
+However, there are small but
+important differences between linear and
+logistic regression when it comes to
+understanding the quality of a model.
+Linear regression has an R-squared value that estimates
+the fraction of variants and
+the response that is explained by the model.
+For logistic regression, there isn't
+a nice alternative with similar mathematical properties.
+But of course people want one.
+So several researchers have come up with what
+are called pseudo R-squared formulas.
+Different software packages use
+different ones and they're
+all usually pretty reasonable
+for comparing different models.
+Just be aware that none of them
+is really measuring the fraction of
+response variance explained by
+the model like it does in linear regression.
+One other thing about logistic regression,
+sometimes it can be used for classification.
+We find coefficients as if we're trying to
+estimate a probability but in the end,
+we want to use the model to give a yes or no answer.
+Usually that's done by
+specifying a threshold probability.
+For example, if the model estimates a probability of
+0.7 or higher we'll give this applicant a loan,
+otherwise we won't give the loan.
+A common way of looking at this is to use
+a receiver operating characteristic curve or ROC.
+In this graph, we plot the sensitivity and 1
+minus the specificity of the model for each threshold.
+The area under that curve, creatively called AUC,
+shows the probability that if we choose
+a random person from
+the yes group and one from the no group,
+the yes person has a higher estimate in the model.
+So for example, if we choose one random person,
+call him Joe who repaid the loan,
+and one random person Moe who didn't,
+then the AUC would be
+the probability that the model gives
+Joe's data point a higher response value than Moe's.
+For reference an AUC,
+also called concordance index of 0.5,
+means that we're just really guessing.
+As we talked about in previous lessons,
+this measure isn't necessarily the one you should use.
+It doesn't differentiate between the cost of
+false negative and false positive results
+among other things.
+But it can give you
+a quick and dirty estimate of model quality.
+But if you really want to determine which model
+might give you the highest value solutions,
+go back to the principles we talked about in the lesson
+on valuation of confusion matrix data.
+You can apply those same principles
+here in logistic regression.

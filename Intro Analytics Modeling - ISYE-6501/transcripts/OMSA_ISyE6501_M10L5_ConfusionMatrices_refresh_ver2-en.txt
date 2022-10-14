@@ -1,0 +1,119 @@
+>> In this lesson, we'll talk about how to measure
+how well a classification type model works.
+Whether you're using a pure classification model like
+a support vector machine or K-nearest-neighbor approach
+that categorizes data points directly
+or probability driven approach like logistic regression,
+here's the bottom line.
+Of all the things in the category,
+how many does your approach correctly
+classify into that category and how many are not?
+And of all the things that are not in the category,
+how many does your approach
+correctly say are not in the category,
+and how many does it incorrectly
+classify as part of the category.
+This table is called the Confusion Matrix.
+The word confusion here shows how
+much the model is confusing the two categories.
+Each of the cells in the table has a name too.
+If the model correctly indicates
+that a data point is in the category,
+it's called a true positive or TP.
+If the model makes a mistake,
+it takes a data point that's
+not in the category and says it is,
+that's called the false positive or FP.
+If the model correctly indicates that
+a data point is not in the category,
+it's called a true negative or TN.
+And if the model takes the data point that
+is in the category and says it's not,
+that's called a false negative or FN.
+Here's a quick guideline to remembering these names.
+Positive means the model says it's in
+the category and negative means the model says it's not.
+And true, means the model got it right.
+False means the model got it wrong. Here's an example.
+Suppose we have a support vector machine model
+to filter out spam from our email.
+After testing on 1,000 emails,
+500 of which are valid and 500 of which are spam,
+here are the results.
+Of the 500 valid emails,
+490 are correctly classified as
+real and 10 are incorrectly labeled spam.
+Of the 500 spam emails,
+400 are correctly classified as
+spam and 100 are incorrectly labeled as real.
+Note here that because we have two classes,
+we can put all the results into one confusion matrix.
+Here, it's the confusion matrix for real email.
+So positive means it's real,
+negative means it's spam.
+The confusion matrix lets you quickly
+find the answers to some important questions.
+For example, supposing that the user
+believes half of their incoming email really is spam and
+wants to know what fraction of email
+in their inbox they should expect to be
+spam if this model is used as
+a filter, how could they do it?
+Take a minute, think about
+the answer and then unpause your video.
+The total number of emails in their inbox is TP plus FP.
+And FP is the number that are actually spam.
+So this would be 100 false positives divided by
+490 true positives plus
+100 false positives, are about 17%.
+Similarly, suppose they want to know
+what fraction of real email would get lost in the filter.
+That's just 10 false negatives divided by
+490 true positives plus
+10 false negatives. And that's 2%.
+So the confusion matrix can
+be really helpful for presenting
+data to make these calculations in a straightforward way.
+Hopefully that wasn't confusing.
+But now let's see how people have really put
+the confusion back into confusion matrices.
+There are a couple of common measures
+that people might assume you'll know.
+Sensitivity, the number of true positives
+divided by true positives plus false negatives.
+That's just the fraction of
+category members that are correctly identified.
+And specificity, true negatives
+divided by true negatives plus false positives.
+That's the fraction of non category members
+that are correctly identified.
+Those are good ones to remember.
+But there are also lots of
+others with each come with their own name,
+sometimes more than one name for the same thing.
+Like accuracy, diagnostic odds ratio,
+fallout, false negative rate,
+false omission rate, false positive rate,
+hit rate, misery, negative likelihood ratio,
+negative predictive value, positive likelihood ratio,
+positive predictive value precision.
+Recall, true negative rate, true positive rate.
+[NOISE] You can go
+ahead and memorize all these if you want,
+but I don't recommend it.
+You can always look up
+a definition for something if you need it.
+And we have the definitions
+posted for you in the glossary.
+The most important thing to do is to not
+get bogged down in memorizing definitions,
+but instead to understand
+the basic confusion matrix and be
+able to think through like we did above,
+how to use the contents of the confusion matrix to
+calculate whatever metrics are
+important in your analytics application.
+You can also use the contents of
+a confusion matrix to calculate
+the expected value or cost of a model suggestions.
+We'll see that in another lesson.

@@ -1,0 +1,185 @@
+>> In quite a few lessons in this course we've seen how
+statistical models can be fit to a dataset.
+And unless you've waited until
+the very end to view this lesson,
+you'll soon see even more models that need to be fit.
+Each time we've talked about model
+fitting I've glossed over an important detail.
+How exactly do we measure the quality of our model's fit?
+In this lesson we'll see
+a few different ways of measuring
+a model's quality of fit.
+The most basic measure of model quality is likelihood.
+Basically we assume that the observed data is
+the correct value and that we
+have information about the variance.
+Then for any set of
+parameters we can measure the probability,
+really, the probability density that
+the model would generate the estimates it does.
+Whichever set of parameters gives
+the highest probability density,
+called the maximum likelihood,
+is the best-fit set of parameters.
+Here's a small example.
+Suppose we believe that errors are
+normally distributed with mean 0 and
+variance Sigma squared and that they're
+independent from one data point to the next,
+then given observed data z_1 through
+z_n and our model's estimates y_1 through y_n,
+here's the probability of observing
+z_i if the true value is y_i.
+And because the errors are all independent,
+the joint probability of observing z_1 through z_n if
+the true values are y_1 through
+y_n is just the products of each of the n terms.
+We can simplify this into
+a single exponential term and
+because the exponential function gets larger as
+the exponent gets larger we can find the largest value
+of this whole expression by
+finding the largest value of the exponent.
+We can remove all of the constants and we're left,
+in this case, with a negative sum of the squared errors.
+So if errors are normally
+distributed and they are independent and
+identically distributed then the set of parameters that
+minimizes the sum of
+squared errors is the maximum likelihood fit.
+Here's how this looks in
+the case of a basic linear regression.
+If you haven't viewed the regression
+lesson yet, don't worry.
+Just take my word for it now that
+the regression estimate, y_i,
+is equal to a_0 plus the sum of aj times xij,
+where xij is
+the jth observed predictor value of data point,
+i, and a_0
+through a_m are the parameters we're trying to fit.
+So we can substitute into the sum of
+squared errors and minimize
+this function over the values of a.
+We'll see in the optimization topic that this is
+a pretty easy problem for modern software to solve.
+We can also use likelihood to compare
+two different models by using the likelihood ratio,
+the ratio of their likelihoods,
+and conducting a hypothesis test,
+like you might remember from basic statistics.
+Regression with
+independent identically normally distributed errors
+is a simple example of maximum likelihood fitting.
+But it can get pretty complex with
+different estimation formulas substituted for
+the linear regression formula
+or with different assumptions
+about the error and it's not
+always easy to compute a solution.
+We won't talk much about
+computing those solutions in this course.
+That's advanced material you
+might see an elective courses,
+but good statistical software can handle
+a lot more complexity than simple regression.
+So that's the basic maximum likelihood approach.
+There are also some other approaches that combine
+maximum likelihood with model complexity.
+The math behind these other methods is more
+complex and not so instructive to see at this point.
+So let me just put these functions up.
+One commonly used function is
+the Akaike information criterion or AIC.
+In this formula L star is
+the maximum likelihood value and
+k is the number of parameters we're estimating.
+This term called the penalty term helps us
+balance the model's likelihood with its simplicity.
+It's important to do that because although
+adding parameters can improve a model's fit,
+it can also lead to overfitting,
+where the extra parameters push the model
+to fit random effects, not real ones.
+If you don't remember what I'm talking about,
+go ahead and view or review the lessons on validation.
+Here's an example of the AIC.
+In the case of regression we can
+substitute the likelihood function and
+the number of parameters is just m
+plus 1 for a_0 through a_m.
+So the AIC could be calculated this way.
+Whichever model has the smallest AIC would be preferred.
+Making AIC smaller encourages fewer parameters,
+k, and higher likelihood.
+I said I wasn't going to get into
+the underlying mathematics behind this formula,
+it comes from information theory,
+but there is one thing I do need to mention.
+AIC has nice properties if there are
+infinitely many data points available to fit the model.
+But, of course, we're never going to have
+infinitely much data and if you do, good luck storing it.
+So there's a correction term we can add two AIC to deal
+with a much more common situation
+where the dataset is not infinite.
+This adjusted formula is called the
+corrected AIC or AIC_c.
+When comparing models with different AIC or AIC_c values,
+it turns out that we can calculate
+the relative probability that
+one of them is better than the other.
+Specifically e^1.5 the difference in
+AIC values is the relative likelihood
+that the lower AIC model is better.
+So, for example,
+if one model has AIC 75 and one has AIC 80,
+then the second model is
+8.2% as likely as the first model to be the better one.
+In this case it's much more
+likely that the first model is better.
+Let's see one more criterion which is similar to the AIC.
+This one might seem to be somewhat uncreatively named.
+We just saw the AIC and now we have
+the BIC or Bayesian Information Criterion.
+As you can see, the formula for
+the BIC is pretty similar to the AIC.
+The only difference is how it deals with
+a number of parameters and data points.
+In general, the BIC's penalty term is larger than
+the AIC's penalty term so it can
+encourage models with fewer parameters than the AIC does.
+But as you can see, when the number of data points, n,
+gets close to the number of parameters, it breaks down.
+So only use BIC if you have
+a lot more data than you have parameters.
+When comparing two models on
+the same dataset by their BIC,
+there's a standard rule of thumb.
+If the difference in BIC is 10 or more
+then the smaller BIC model is very likely to be better.
+If the difference is between six and 10 then
+the smaller BIC model is likely to be better.
+If the difference is between two and six then
+the smaller BIC model is somewhat likely to be better.
+And if the difference is between zero and two then
+the smaller BIC model is only
+slightly likely to be better.
+And if this all sounds
+pretty hand-wavy to you, you're right.
+It's an inexact science.
+And similarly, as with many things in analytics,
+there's not a hard and fast rule for using
+AIC or BIC or just maximum likelihood.
+For those of you who are
+the deeper statistics background,
+the AIC is a frequentist point of
+view and the BIC is a Bayesian point of view.
+The frequentist versus Bayesian argument really gets into
+the philosophy of statistics and it's
+beyond what we're going to talk about in this course.
+What matters to us is that
+all three approaches can give valuable information.
+And looking at them together can help you decide
+which model among those you're
+testing is the best one to use.
