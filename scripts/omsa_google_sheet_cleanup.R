@@ -146,7 +146,10 @@ syllabus_tbl <- syllabus %>%
                                  , str_detect(course_code, "CS") ~ "CS Elective"
                                  , TRUE ~ NA_character_
                                  )
-         )
+         ) 
+
+syllabus_tbl <- syllabus_tbl %>%
+  bind_rows(syllabus_tbl %>% filter(course_code %in% "ISYE 6740") %>% mutate(course_code = "ISYE 6740 - CS Req", course_type1 = "CS Required"))
   
 write_rds(syllabus_tbl,"data/syllabus_tbl.rds")
 writexl::write_xlsx(syllabus_tbl,"data/syllabus_tbl.xlsx")
