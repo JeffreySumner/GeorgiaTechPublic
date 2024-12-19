@@ -1,0 +1,13 @@
+name: DiabetesAwarenessTool
+title: DiabetesAwarenessTool
+username: npfp0p-jeffrey0sumner
+account: npfp0p-jeffrey0sumner
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 10624717
+bundleId: 7968669
+url: https://npfp0p-jeffrey0sumner.shinyapps.io/DiabetesAwarenessTool/
+version: 1
+asMultiple: FALSE
+asStatic: FALSE
+ignoredFiles: models/enhanced_recipe.RDS|models/model_data/enhanced_model_training_data.RDS

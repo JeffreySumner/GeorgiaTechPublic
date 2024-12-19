@@ -1,0 +1,125 @@
+/* Define Georgia Tech colors */
+:root {
+  --gt-blue: #00254C;    /* Navy Blue */
+  --gt-gold: #B3A369;    /* Gold */
+  --gt-white: #FFFFFF;    /* White */
+}
+
+/* Apply Georgia Tech gold color to the main header */
+.skin-blue .main-header .navbar {
+  background-color: var(--gt-gold) !important; /* Use !important to override existing styles */
+  color: var(--gt-blue);
+}
+
+/* Logo and title when sidebar is collapsed */
+.skin-blue .main-header .logo,
+.skin-blue .main-header .logo.mini {
+  background-color: var(--gt-gold) !important; /* Use !important to override existing styles */
+  color: var(--gt-blue);
+}
+
+/* Change hamburger icon color to Georgia Tech blue */
+.skin-blue .main-header .navbar .sidebar-toggle {
+  color: var(--gt-blue) !important;
+}
+
+/* Change hamburger icon hover background color to Georgia Tech blue and icon color to Georgia Tech gold */
+.skin-blue .main-header .navbar .sidebar-toggle:hover {
+  background-color: var(--gt-blue) !important;
+  color: var(--gt-gold) !important;
+}
+
+
+/* Apply Georgia Tech colors to the sidebar */
+.skin-blue .main-sidebar {
+  background-color: var(--gt-blue);
+  color: var(--gt-white);
+}
+
+/* Sidebar menu links */
+.skin-blue .sidebar a {
+  color: var(--gt-white);
+}
+
+/* Sidebar menu links hover and active state */
+.skin-blue .sidebar a:hover,
+.skin-blue .sidebar .menu-open > a,
+.skin-blue .sidebar .active > a {
+  background-color: var(--gt-gold);
+  color: var(--gt-blue);
+}
+
+/* Sidebar menu header */
+.skin-blue .sidebar .sidebar-menu > li.header {
+  color: var(--gt-white);
+}
+
+/* Submenu: Use a lighter blue or a different shade for submenu items if desired */
+.skin-blue .sidebar .sidebar-menu .treeview-menu {
+  background: var(--gt-gold);
+}
+
+/* Submenu links */
+.skin-blue .sidebar .sidebar-menu .treeview-menu a {
+  color: var(--gt-blue);
+}
+
+/* Submenu links hover and active state */
+.skin-blue .sidebar .sidebar-menu .treeview-menu a:hover,
+.skin-blue .sidebar .sidebar-menu .treeview-menu .active > a {
+  background: var(--gt-blue);
+  color: var(--gt-gold);
+}
+
+/* Content headers */
+.content-wrapper .content-header h1,
+.content-wrapper .content-header h2 {
+  color: var(--gt-blue);
+}
+
+/* Buttons */
+.btn {
+  background-color: var(--gt-gold);
+  color: var(--gt-blue);
+}
+
+/* Button hover state */
+.btn:hover {
+  background-color: var(--gt-blue);
+  color: var(--gt-gold);
+}
+
+.custom-table-width { 
+      width: 80% !important; 
+      table-layout: auto !important;
+      margin-left: 0; 
+      margin-right: auto;
+}
+
+.table-responsive .table td {
+  white-space: normal !important;
+  word-wrap: break-word !important;
+  max-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+
+/* Additional styles for instruction page */
+#instructions-content {
+  color: var(--gt-blue); /* Use Georgia Tech navy blue for text */
+  background-color: var(--gt-gold); /* Use Georgia Tech gold for background */
+  padding: 20px;
+  border-radius: 5px;
+  margin: 10px;
+}
+
+/* You can target specific elements within the instructions tab */
+#instructions-content h2 {
+  color: var(--gt-blue);
+}
+
+#instructions-content p {
+  color: var(--gt-blue);
+}
+
